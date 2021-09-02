@@ -52,6 +52,11 @@ class LoginPage extends HookWidget {
                             border: InputBorder.none,
                             prefixIcon: Icon(Icons.person),
                           ),
+                          validator: (value) => value == null
+                              ? "Username is empty"
+                              : value.length < 4
+                                  ? "Username is invalid"
+                                  : null,
                         ),
                       ),
                       Padding(
@@ -71,6 +76,11 @@ class LoginPage extends HookWidget {
                                   hidden = !hidden;
                                 },
                               )),
+                          validator: (value) => value == null
+                              ? "Password is empty"
+                              : value.length < 5
+                                  ? "Password is invalid"
+                                  : null,
                         ),
                       ),
                       SizedBox(height: 36),
