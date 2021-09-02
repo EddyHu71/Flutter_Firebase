@@ -100,6 +100,15 @@ class LoginPage extends HookWidget {
                               Navigator.pushReplacementNamed(context, "home");
                             }),
                       ),
+                      SizedBox(height: 16),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(14.0, 8.0, 14.0, 8.0),
+                        child: Components.button(
+                            text: "Sign in with Google",
+                            onPressed: () {
+                              Navigator.pushReplacementNamed(context, "home");
+                            }),
+                      ),
                       SizedBox(height: 48),
                     ],
                   ),

@@ -33,7 +33,8 @@ dependencies:
   shimmer:
   bloc:
   flutter_hooks:
-
+  google_sign_in:
+  firebase_auth:
 dev_dependencies:
   flutter_test:
     sdk: flutter
