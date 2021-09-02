@@ -4,8 +4,8 @@ import 'package:flutter_firebase/presentation/core/colours.dart';
 
 class Components {
   static RawMaterialButton button({
-    @required String text,
-    @required VoidCallback onPressed,
+    required String text,
+    required VoidCallback onPressed,
   }) =>
       RawMaterialButton(
           fillColor: Colours.buttonColor,
@@ -37,10 +37,10 @@ class Components {
           ));
 
   static Card weatherList(
-          {@required String longitude,
-          @required String lattitude,
-          @required String title,
-          @required String description}) =>
+          {required String longitude,
+          required String lattitude,
+          required String title,
+          required String description}) =>
       Card(
           elevation: 2,
           shape:

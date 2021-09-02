@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase/presentation/core/components.dart';
-import 'package:flutter_firebase/presentation/core/searchBar.dart';
 import 'package:flutter_firebase/presentation/home/profile_page.dart';
 import 'package:flutter_firebase/presentation/home/view_data.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';

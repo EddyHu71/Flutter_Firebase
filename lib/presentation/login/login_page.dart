@@ -25,7 +25,7 @@ class LoginPage extends HookWidget {
                     borderRadius: BorderRadius.circular(16),
                     color: Colors.white,
                     boxShadow: [
-                      BoxShadow(color: Colors.grey[350], blurRadius: 20),
+                      BoxShadow(color: Colors.grey, blurRadius: 20),
                     ]),
                 child: Form(
                   key: _formKey,
@@ -52,17 +52,6 @@ class LoginPage extends HookWidget {
                             border: InputBorder.none,
                             prefixIcon: Icon(Icons.person),
                           ),
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return "Username is empty";
-                            } else {
-                              if (value.length < 4) {
-                                return "Username is invalid";
-                              } else {
-                                return null;
-                              }
-                            }
-                          },
                         ),
                       ),
                       Padding(
@@ -82,13 +71,6 @@ class LoginPage extends HookWidget {
                                   hidden = !hidden;
                                 },
                               )),
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return "Password is empty";
-                            } else {
-                              return null;
-                            }
-                          },
                         ),
                       ),
                       SizedBox(height: 36),
@@ -104,10 +86,7 @@ class LoginPage extends HookWidget {
                       Padding(
                         padding: EdgeInsets.fromLTRB(14.0, 8.0, 14.0, 8.0),
                         child: Components.button(
-                            text: "Sign in with Google",
-                            onPressed: () {
-                              Navigator.pushReplacementNamed(context, "home");
-                            }),
+                            text: "Sign in with Google", onPressed: () {}),
                       ),
                       SizedBox(height: 48),
                     ],
