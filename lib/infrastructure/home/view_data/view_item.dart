@@ -6,9 +6,9 @@ part 'view_item.g.dart';
 @freezed
 class ViewItem with _$ViewItem {
   const factory ViewItem(
-      {@JsonKey(name: 'dt') required String dt,
+      {@JsonKey(name: "dt") required String dt,
       required List main}) = _ViewItem;
 
-  factory ViewItem.fromJson(Map<String, dynamic> map) =>
-      _$ViewItemFromJson(map);
+  factory ViewItem.fromJson(Map<String, dynamic> json) =>
+      _$ViewItemFromJson(json);
 }

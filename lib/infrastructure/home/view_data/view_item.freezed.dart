@@ -21,7 +21,7 @@ class _$ViewItemTearOff {
   const _$ViewItemTearOff();
 
   _ViewItem call(
-      {@JsonKey(name: 'dt') required String dt, required List<dynamic> main}) {
+      {@JsonKey(name: "dt") required String dt, required List<dynamic> main}) {
     return _ViewItem(
       dt: dt,
       main: main,
@@ -38,7 +38,7 @@ const $ViewItem = _$ViewItemTearOff();
 
 /// @nodoc
 mixin _$ViewItem {
-  @JsonKey(name: 'dt')
+  @JsonKey(name: "dt")
   String get dt => throw _privateConstructorUsedError;
   List<dynamic> get main => throw _privateConstructorUsedError;
 
@@ -52,7 +52,7 @@ mixin _$ViewItem {
 abstract class $ViewItemCopyWith<$Res> {
   factory $ViewItemCopyWith(ViewItem value, $Res Function(ViewItem) then) =
       _$ViewItemCopyWithImpl<$Res>;
-  $Res call({@JsonKey(name: 'dt') String dt, List<dynamic> main});
+  $Res call({@JsonKey(name: "dt") String dt, List<dynamic> main});
 }
 
 /// @nodoc
@@ -86,7 +86,7 @@ abstract class _$ViewItemCopyWith<$Res> implements $ViewItemCopyWith<$Res> {
   factory _$ViewItemCopyWith(_ViewItem value, $Res Function(_ViewItem) then) =
       __$ViewItemCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(name: 'dt') String dt, List<dynamic> main});
+  $Res call({@JsonKey(name: "dt") String dt, List<dynamic> main});
 }
 
 /// @nodoc
@@ -120,13 +120,13 @@ class __$ViewItemCopyWithImpl<$Res> extends _$ViewItemCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ViewItem implements _ViewItem {
   const _$_ViewItem(
-      {@JsonKey(name: 'dt') required this.dt, required this.main});
+      {@JsonKey(name: "dt") required this.dt, required this.main});
 
   factory _$_ViewItem.fromJson(Map<String, dynamic> json) =>
       _$_$_ViewItemFromJson(json);
 
   @override
-  @JsonKey(name: 'dt')
+  @JsonKey(name: "dt")
   final String dt;
   @override
   final List<dynamic> main;
@@ -165,13 +165,13 @@ class _$_ViewItem implements _ViewItem {
 
 abstract class _ViewItem implements ViewItem {
   const factory _ViewItem(
-      {@JsonKey(name: 'dt') required String dt,
+      {@JsonKey(name: "dt") required String dt,
       required List<dynamic> main}) = _$_ViewItem;
 
   factory _ViewItem.fromJson(Map<String, dynamic> json) = _$_ViewItem.fromJson;
 
   @override
-  @JsonKey(name: 'dt')
+  @JsonKey(name: "dt")
   String get dt => throw _privateConstructorUsedError;
   @override
   List<dynamic> get main => throw _privateConstructorUsedError;

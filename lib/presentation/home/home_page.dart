@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_firebase/presentation/core/components.dart';
 import 'package:flutter_firebase/presentation/home/profile_page.dart';
 import 'package:flutter_firebase/presentation/home/view_data.dart';
@@ -16,7 +17,7 @@ class HomePage extends HookWidget {
     final _selectedIndex = useState(0);
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title : Text("Home Page")),
+      appBar: AppBar(centerTitle: true, title: Text("Home Page")),
       body: _pages[_selectedIndex.value],
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
