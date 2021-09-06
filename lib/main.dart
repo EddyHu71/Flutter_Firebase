@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase/presentation/home/home_page.dart';
-import 'package:flutter_firebase/presentation/login/login_page.dart';
+import 'package:injectable/injectable.dart';
+import 'package:get/get.dart';
+import 'package:flutter_firebase/presentation/routes/routes.dart';
+import 'package:flutter_firebase/injection.dart';
 
 void main() {
+  configureInjection(Environment.dev);
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      smartManagement: SmartManagement.full,
       title: 'Flutter Firebase',
-      routes: <String, WidgetBuilder>{
-        "home": (BuildContext context) => HomePage(),
-        "login": (BuildContext context) => LoginPage(),
-      },
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(),
+      getPages: Routes().routes,
+      initialRoute: Routes.home,
     );
   }
 }

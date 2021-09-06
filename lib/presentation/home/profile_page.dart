@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_firebase/presentation/core/alerts.dart';
 import 'package:flutter_firebase/presentation/core/components.dart';
 import 'package:flutter_firebase/presentation/core/utils.dart';
+import 'package:flutter_firebase/presentation/login/login_page.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:get/get.dart';
 
 class ProfilePage extends HookWidget {
   @override
@@ -38,13 +40,17 @@ class ProfilePage extends HookWidget {
                 title: Text("Logout",
                     style: TextStyle(fontWeight: FontWeight.bold)),
                 onTap: () {
-                  Alerts.alertDialog(
-                      context: context,
+                  Alerts.logoutAlert(
+                      withCancel: true,
+                      title: "Logout",
+                      subTitle: "Are you sure want to logout?",
                       onPressed: () {
-                        Navigator.pushReplacementNamed(context, "login");
+                        Get.off(LoginPage());
                       },
-                      subTitle: 'Are you sure want to logout?',
-                      title: 'Logout');
+                      onCancelPressed: () {
+                        Get.back();
+                      },
+                      context: context);
                 },
               ),
             ))

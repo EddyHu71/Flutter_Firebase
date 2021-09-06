@@ -1,26 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Alerts {
-  static Future<void> alertDialog({
-    required BuildContext context,
-    required String title,
-    required String subTitle,
-    required VoidCallback onPressed,
-  }) async {
-    return showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-              title: Text(title),
-              content: Text(subTitle),
-              actions: <Widget>[
-                TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text("No")),
-                TextButton(onPressed: onPressed, child: Text("Yes"))
-              ]);
-        });
+  static Future<void> logoutAlert(
+      {String key = "dialogalert",
+      required VoidCallback onPressed,
+      required VoidCallback? onCancelPressed,
+      required BuildContext context,
+      bool withCancel = false,
+      String? title,
+      String? subTitle,
+      String yesText = "Yes",
+      String noText = "No"}) async {
+    List<Widget> buttons = [];
+    if (withCancel) {
+      buttons.add(TextButton(
+          onPressed: () {
+            onCancelPressed?.call();
+            Get.back();
+          },
+          child: Text(noText)));
+    }
+
+    buttons.add(TextButton(
+        onPressed: () {
+          onCancelPressed?.call();
+          Get.back();
+        },
+        child: Text(yesText)));
+    return Get.dialog(
+        AlertDialog(
+          title: title != null ? Text(title) : null,
+          content: subTitle != null ? Text(subTitle) : null,
+          actions: buttons,
+        ),
+        barrierDismissible: false);
   }
 }

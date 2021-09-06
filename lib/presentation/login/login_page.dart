@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase/presentation/core/components.dart';
 import 'package:flutter_firebase/presentation/core/utils.dart';
+import 'package:flutter_firebase/presentation/home/home_page.dart';
+import 'package:flutter_firebase/presentation/routes/routes.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class LoginPage extends HookWidget {
@@ -89,7 +91,7 @@ class LoginPage extends HookWidget {
                         child: Components.button(
                             text: "Login",
                             onPressed: () {
-                              Navigator.pushReplacementNamed(context, "home");
+                              
                             }),
                       ),
                       SizedBox(height: 16),

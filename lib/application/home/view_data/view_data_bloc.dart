@@ -16,7 +16,7 @@ part 'view_data_bloc.freezed.dart';
 class ViewDataBloc extends Bloc<ViewDataEvent, ViewDataState> {
   late IViewRepository viewRepository;
 
-  ViewDataBloc(ViewDataState initialState) : super(initialState);
+  ViewDataBloc(ViewDataState initialState) : super(_Initial());
 
   @override
   Stream<ViewDataState> mapEventToState(
@@ -25,7 +25,8 @@ class ViewDataBloc extends Bloc<ViewDataEvent, ViewDataState> {
     // TODO: implement mapEventToState
     yield* event.map(started: (e) async* {
       yield ViewDataState.loading();
-      var res = await viewRepository.getData(e.dt);
+      await Future.delayed(Duration(seconds: 3));
+      var res = await viewRepository.getData();
       yield ViewDataState.loaded(optionFailedOrSuccess: optionOf(res));
     });
   }

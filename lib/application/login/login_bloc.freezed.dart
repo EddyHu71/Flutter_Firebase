@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
-part of 'view_data_bloc.dart';
+part of 'login_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -13,8 +13,8 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$ViewDataEventTearOff {
-  const _$ViewDataEventTearOff();
+class _$LoginEventTearOff {
+  const _$LoginEventTearOff();
 
   _Started started() {
     return const _Started();
@@ -22,10 +22,10 @@ class _$ViewDataEventTearOff {
 }
 
 /// @nodoc
-const $ViewDataEvent = _$ViewDataEventTearOff();
+const $LoginEvent = _$LoginEventTearOff();
 
 /// @nodoc
-mixin _$ViewDataEvent {
+mixin _$LoginEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
@@ -51,20 +51,19 @@ mixin _$ViewDataEvent {
 }
 
 /// @nodoc
-abstract class $ViewDataEventCopyWith<$Res> {
-  factory $ViewDataEventCopyWith(
-          ViewDataEvent value, $Res Function(ViewDataEvent) then) =
-      _$ViewDataEventCopyWithImpl<$Res>;
+abstract class $LoginEventCopyWith<$Res> {
+  factory $LoginEventCopyWith(
+          LoginEvent value, $Res Function(LoginEvent) then) =
+      _$LoginEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ViewDataEventCopyWithImpl<$Res>
-    implements $ViewDataEventCopyWith<$Res> {
-  _$ViewDataEventCopyWithImpl(this._value, this._then);
+class _$LoginEventCopyWithImpl<$Res> implements $LoginEventCopyWith<$Res> {
+  _$LoginEventCopyWithImpl(this._value, this._then);
 
-  final ViewDataEvent _value;
+  final LoginEvent _value;
   // ignore: unused_field
-  final $Res Function(ViewDataEvent) _then;
+  final $Res Function(LoginEvent) _then;
 }
 
 /// @nodoc
@@ -74,7 +73,7 @@ abstract class _$StartedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$StartedCopyWithImpl<$Res> extends _$ViewDataEventCopyWithImpl<$Res>
+class __$StartedCopyWithImpl<$Res> extends _$LoginEventCopyWithImpl<$Res>
     implements _$StartedCopyWith<$Res> {
   __$StartedCopyWithImpl(_Started _value, $Res Function(_Started) _then)
       : super(_value, (v) => _then(v as _Started));
@@ -90,7 +89,7 @@ class _$_Started implements _Started {
 
   @override
   String toString() {
-    return 'ViewDataEvent.started()';
+    return 'LoginEvent.started()';
   }
 
   @override
@@ -142,13 +141,13 @@ class _$_Started implements _Started {
   }
 }
 
-abstract class _Started implements ViewDataEvent {
+abstract class _Started implements LoginEvent {
   const factory _Started() = _$_Started;
 }
 
 /// @nodoc
-class _$ViewDataStateTearOff {
-  const _$ViewDataStateTearOff();
+class _$LoginStateTearOff {
+  const _$LoginStateTearOff();
 
   _Initial initial() {
     return const _Initial();
@@ -159,7 +158,7 @@ class _$ViewDataStateTearOff {
   }
 
   _Loaded loaded(
-      {required Option<Either<ViewFailure, IList<ViewItem>>>
+      {required Option<Either<LoginFailure, IList<LoginItem>>>
           optionFailedOrSuccess}) {
     return _Loaded(
       optionFailedOrSuccess: optionFailedOrSuccess,
@@ -168,16 +167,17 @@ class _$ViewDataStateTearOff {
 }
 
 /// @nodoc
-const $ViewDataState = _$ViewDataStateTearOff();
+const $LoginState = _$LoginStateTearOff();
 
 /// @nodoc
-mixin _$ViewDataState {
+mixin _$LoginState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
-            Option<Either<ViewFailure, IList<ViewItem>>> optionFailedOrSuccess)
+            Option<Either<LoginFailure, IList<LoginItem>>>
+                optionFailedOrSuccess)
         loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -186,7 +186,8 @@ mixin _$ViewDataState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(
-            Option<Either<ViewFailure, IList<ViewItem>>> optionFailedOrSuccess)?
+            Option<Either<LoginFailure, IList<LoginItem>>>
+                optionFailedOrSuccess)?
         loaded,
     required TResult orElse(),
   }) =>
@@ -209,20 +210,19 @@ mixin _$ViewDataState {
 }
 
 /// @nodoc
-abstract class $ViewDataStateCopyWith<$Res> {
-  factory $ViewDataStateCopyWith(
-          ViewDataState value, $Res Function(ViewDataState) then) =
-      _$ViewDataStateCopyWithImpl<$Res>;
+abstract class $LoginStateCopyWith<$Res> {
+  factory $LoginStateCopyWith(
+          LoginState value, $Res Function(LoginState) then) =
+      _$LoginStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ViewDataStateCopyWithImpl<$Res>
-    implements $ViewDataStateCopyWith<$Res> {
-  _$ViewDataStateCopyWithImpl(this._value, this._then);
+class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
+  _$LoginStateCopyWithImpl(this._value, this._then);
 
-  final ViewDataState _value;
+  final LoginState _value;
   // ignore: unused_field
-  final $Res Function(ViewDataState) _then;
+  final $Res Function(LoginState) _then;
 }
 
 /// @nodoc
@@ -232,7 +232,7 @@ abstract class _$InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$ViewDataStateCopyWithImpl<$Res>
+class __$InitialCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
     implements _$InitialCopyWith<$Res> {
   __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
       : super(_value, (v) => _then(v as _Initial));
@@ -248,7 +248,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'ViewDataState.initial()';
+    return 'LoginState.initial()';
   }
 
   @override
@@ -265,7 +265,8 @@ class _$_Initial implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
-            Option<Either<ViewFailure, IList<ViewItem>>> optionFailedOrSuccess)
+            Option<Either<LoginFailure, IList<LoginItem>>>
+                optionFailedOrSuccess)
         loaded,
   }) {
     return initial();
@@ -277,7 +278,8 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(
-            Option<Either<ViewFailure, IList<ViewItem>>> optionFailedOrSuccess)?
+            Option<Either<LoginFailure, IList<LoginItem>>>
+                optionFailedOrSuccess)?
         loaded,
     required TResult orElse(),
   }) {
@@ -312,7 +314,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements ViewDataState {
+abstract class _Initial implements LoginState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -323,7 +325,7 @@ abstract class _$LoadingCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$LoadingCopyWithImpl<$Res> extends _$ViewDataStateCopyWithImpl<$Res>
+class __$LoadingCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
     implements _$LoadingCopyWith<$Res> {
   __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
       : super(_value, (v) => _then(v as _Loading));
@@ -339,7 +341,7 @@ class _$_Loading implements _Loading {
 
   @override
   String toString() {
-    return 'ViewDataState.loading()';
+    return 'LoginState.loading()';
   }
 
   @override
@@ -356,7 +358,8 @@ class _$_Loading implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
-            Option<Either<ViewFailure, IList<ViewItem>>> optionFailedOrSuccess)
+            Option<Either<LoginFailure, IList<LoginItem>>>
+                optionFailedOrSuccess)
         loaded,
   }) {
     return loading();
@@ -368,7 +371,8 @@ class _$_Loading implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(
-            Option<Either<ViewFailure, IList<ViewItem>>> optionFailedOrSuccess)?
+            Option<Either<LoginFailure, IList<LoginItem>>>
+                optionFailedOrSuccess)?
         loaded,
     required TResult orElse(),
   }) {
@@ -403,7 +407,7 @@ class _$_Loading implements _Loading {
   }
 }
 
-abstract class _Loading implements ViewDataState {
+abstract class _Loading implements LoginState {
   const factory _Loading() = _$_Loading;
 }
 
@@ -412,11 +416,11 @@ abstract class _$LoadedCopyWith<$Res> {
   factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) then) =
       __$LoadedCopyWithImpl<$Res>;
   $Res call(
-      {Option<Either<ViewFailure, IList<ViewItem>>> optionFailedOrSuccess});
+      {Option<Either<LoginFailure, IList<LoginItem>>> optionFailedOrSuccess});
 }
 
 /// @nodoc
-class __$LoadedCopyWithImpl<$Res> extends _$ViewDataStateCopyWithImpl<$Res>
+class __$LoadedCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
     implements _$LoadedCopyWith<$Res> {
   __$LoadedCopyWithImpl(_Loaded _value, $Res Function(_Loaded) _then)
       : super(_value, (v) => _then(v as _Loaded));
@@ -432,7 +436,7 @@ class __$LoadedCopyWithImpl<$Res> extends _$ViewDataStateCopyWithImpl<$Res>
       optionFailedOrSuccess: optionFailedOrSuccess == freezed
           ? _value.optionFailedOrSuccess
           : optionFailedOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Option<Either<ViewFailure, IList<ViewItem>>>,
+              as Option<Either<LoginFailure, IList<LoginItem>>>,
     ));
   }
 }
@@ -443,11 +447,11 @@ class _$_Loaded implements _Loaded {
   const _$_Loaded({required this.optionFailedOrSuccess});
 
   @override
-  final Option<Either<ViewFailure, IList<ViewItem>>> optionFailedOrSuccess;
+  final Option<Either<LoginFailure, IList<LoginItem>>> optionFailedOrSuccess;
 
   @override
   String toString() {
-    return 'ViewDataState.loaded(optionFailedOrSuccess: $optionFailedOrSuccess)';
+    return 'LoginState.loaded(optionFailedOrSuccess: $optionFailedOrSuccess)';
   }
 
   @override
@@ -475,7 +479,8 @@ class _$_Loaded implements _Loaded {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
-            Option<Either<ViewFailure, IList<ViewItem>>> optionFailedOrSuccess)
+            Option<Either<LoginFailure, IList<LoginItem>>>
+                optionFailedOrSuccess)
         loaded,
   }) {
     return loaded(optionFailedOrSuccess);
@@ -487,7 +492,8 @@ class _$_Loaded implements _Loaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(
-            Option<Either<ViewFailure, IList<ViewItem>>> optionFailedOrSuccess)?
+            Option<Either<LoginFailure, IList<LoginItem>>>
+                optionFailedOrSuccess)?
         loaded,
     required TResult orElse(),
   }) {
@@ -522,12 +528,12 @@ class _$_Loaded implements _Loaded {
   }
 }
 
-abstract class _Loaded implements ViewDataState {
+abstract class _Loaded implements LoginState {
   const factory _Loaded(
-      {required Option<Either<ViewFailure, IList<ViewItem>>>
+      {required Option<Either<LoginFailure, IList<LoginItem>>>
           optionFailedOrSuccess}) = _$_Loaded;
 
-  Option<Either<ViewFailure, IList<ViewItem>>> get optionFailedOrSuccess =>
+  Option<Either<LoginFailure, IList<LoginItem>>> get optionFailedOrSuccess =>
       throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$LoadedCopyWith<_Loaded> get copyWith => throw _privateConstructorUsedError;

@@ -40,42 +40,45 @@ class Components {
           {required String longitude,
           required String lattitude,
           required String title,
+          required VoidCallback onPressed,
           required String description}) =>
       Card(
           elevation: 2,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           clipBehavior: Clip.antiAlias,
-          margin: EdgeInsets.all(8),
-          child: Container(
-            height: 224,
-            padding: EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                      child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text("Lon : " + longitude,
-                          style: TextStyle(fontWeight: FontWeight.bold)),
-                      SizedBox(width: 8),
-                      Text("Lat : " + lattitude,
-                          style: TextStyle(fontWeight: FontWeight.bold)),
-                    ],
-                  )),
+          child: InkWell(
+              onTap: onPressed,
+              child: Container(
+                height: 224,
+                margin: EdgeInsets.all(8),
+                padding: EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                          child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text("Lon : " + longitude,
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          SizedBox(width: 8),
+                          Text("Lat : " + lattitude,
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                        ],
+                      )),
+                    ),
+                    Expanded(
+                        flex: 1,
+                        child: Text(title,
+                            style: TextStyle(
+                                fontSize: 16.0, fontWeight: FontWeight.bold))),
+                    Expanded(flex: 3, child: Text(description)),
+                  ],
                 ),
-                Expanded(
-                    flex: 1,
-                    child: Text(title,
-                        style: TextStyle(
-                            fontSize: 16.0, fontWeight: FontWeight.bold))),
-                Expanded(flex: 3, child: Text(description)),
-              ],
-            ),
-          ));
+              )));
 }
