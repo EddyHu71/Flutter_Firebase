@@ -28,20 +28,21 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
   connectivity:
-  flutter_bloc:
+  flutter_bloc: ^7.0.0
   dio:
   shimmer:
-  bloc:
-  flutter_hooks:
+  bloc: ^7.0.0
+  flutter_hooks: ^0.17.0
   google_sign_in:
   firebase_auth:
   json_annotation:
   meta:
+  injectable:
   freezed_annotation:
   dartz: ^0.10.0-nullsafety.1
-  fast_immutable_collections:
-  get:
-  get_it:
+  fast_immutable_collections: ^5.0.0
+  get: ^4.1.4
+  get_it: ^7.1.3
 
 dev_dependencies:
   flutter_test:

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_firebase/infrastructure/home/view_data/view_item.dart';
-import 'package:flutter_firebase/presentation/core/components.dart';
 import 'package:flutter_firebase/presentation/home/profile_page.dart';
 import 'package:flutter_firebase/presentation/home/view_data/view_data.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -11,6 +9,7 @@ class HomePage extends HookWidget {
   final _pages = [
     ViewData(),
     ProfilePage(),
+    // Center(child : Text("ABC"))
   ];
   @override
   Widget build(BuildContext context) {

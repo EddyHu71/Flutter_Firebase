@@ -5,7 +5,6 @@ import 'package:flutter_firebase/presentation/home/view_data/detail_view_data.da
 import 'package:flutter_firebase/presentation/home/view_data/view_data.dart';
 import 'package:get/get.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_firebase/application/home/view_data/view_data_bloc.dart';
 import 'package:flutter_firebase/infrastructure/home/view_data/view_item.dart';
 import 'package:flutter_firebase/presentation/login/login_page.dart';
 
@@ -22,17 +21,13 @@ class Routes {
               child: LoginPage(),
             )),
     GetPage(
-        name: Routes.home,
-        page: () =>
-            // HomePage(),
-            BlocProvider<ViewDataBloc>(
-              create: (context) {
-                ViewItem viewItem = Get.arguments as ViewItem;
-                print(viewItem.toJson());
-                return getIt<ViewDataBloc>()..add(ViewDataEvent.started());
-              },
-              child: HomePage(),
+      name: Routes.home,
+      page: () => HomePage(),
+    ),
+    GetPage(
+        name: Routes.detailView,
+        page: () => DetailViewData(
+              viewItem: Get.arguments as ViewItem,
             )),
-    GetPage(name: Routes.detailView, page: () => DetailViewData()),
   ];
 }

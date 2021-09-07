@@ -17,7 +17,7 @@ class ViewRepository implements IViewRepository {
   Future<Either<ViewFailure, IList<ViewItem>>> getData() async {
     // TODO: implement getData
     try {
-      var res = await _network.getUrl(url: Utils.URL + Utils.API_KEY);
+      var res = await _network.getUrl(baseUrl: Utils.API_KEY);
       List datas = res.data as List;
       print("Panjang data adalah ");
       print(datas.length);
@@ -33,6 +33,8 @@ class ViewRepository implements IViewRepository {
     } on ServerException {
       return left(ViewFailure.failed());
     } catch (e) {
+      print("Error ");
+      print(e.toString());
       return left(ViewFailure.failed());
     }
   }

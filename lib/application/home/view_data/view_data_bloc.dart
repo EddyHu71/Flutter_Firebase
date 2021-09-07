@@ -14,20 +14,19 @@ part 'view_data_bloc.freezed.dart';
 
 @injectable
 class ViewDataBloc extends Bloc<ViewDataEvent, ViewDataState> {
-  late IViewRepository viewRepository;
-
-  ViewDataBloc(ViewDataState initialState) : super(_Initial());
+  final IViewRepository viewRepository;
+  ViewDataBloc(this.viewRepository) : super(_Initial());
 
   @override
   Stream<ViewDataState> mapEventToState(
     ViewDataEvent event,
   ) async* {
     // TODO: implement mapEventToState
-    yield* event.map(started: (e) async* {
+    yield* event.map(started: (_) async* {
       yield ViewDataState.loading();
-      await Future.delayed(Duration(seconds: 3));
-      var res = await viewRepository.getData();
-      yield ViewDataState.loaded(optionFailedOrSuccess: optionOf(res));
+      await Future.delayed(Duration(seconds: 4));
+      var response = await viewRepository.getData();
+      yield ViewDataState.loaded(optionFailedOrSuccess: optionOf(response));
     });
   }
 }

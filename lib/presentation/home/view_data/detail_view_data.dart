@@ -9,7 +9,8 @@ import 'package:flutter_firebase/application/home/view_data/view_data_bloc.dart'
 import 'package:flutter_firebase/infrastructure/home/view_data/view_item.dart';
 
 class DetailViewData extends HookWidget {
-  DetailViewData({Key? key}) : super(key: key);
+  final ViewItem viewItem;
+  const DetailViewData({Key? key, required this.viewItem}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -20,7 +21,7 @@ class DetailViewData extends HookWidget {
             title: Text("Details"),
           ),
           body: Center(
-            child: Text("Detail View"),
+            child: Text("Nama Negara adalah " + viewItem.city.country),
           )),
     );
   }
