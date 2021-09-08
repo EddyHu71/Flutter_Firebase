@@ -18,54 +18,51 @@ class ViewData extends HookWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return BlocProvider<ViewDataBloc>(
-      create: (context) => getIt<ViewDataBloc>()..add(ViewDataEvent.started()),
+      create: (_) => getIt<ViewDataBloc>()..add(ViewDataEvent.started()),
       child: BlocConsumer<ViewDataBloc, ViewDataState>(
         listener: (BuildContext context, ViewDataState state) {
-          state.maybeMap(
-              orElse: () {},
-              loaded: (s) {
-                s.optionFailedOrSuccess.fold(
-                    () => null,
-                    (a) => a.fold(
-                        (l) => l.map(
-                          noData: (_) {
-                              Alerts.logoutAlert(
-                                  withCancel: false,
-                                  title: "No Data",
-                                  subTitle: "There is no data",
-                                  yesText: "OK",
-                                  onPressed: () {
-                                    Get.back();
-                                  },
-                                  onCancelPressed: () {},
-                                  context: context);
-                            }, 
-                          noInternet: (_) {
-                              Alerts.logoutAlert(
-                                  withCancel: false,
-                                  title: "No Connection",
-                                  subTitle: "Check your connection",
-                                  yesText: "OK",
-                                  onPressed: () {
-                                    Get.back();
-                                  },
-                                  onCancelPressed: () {},
-                                  context: context);
-                            }, 
-                          failed: (_) {
-                              Alerts.logoutAlert(
-                                  withCancel: false,
-                                  title: "Server Error",
-                                  subTitle: "Please try again",
-                                  yesText: "OK",
-                                  onPressed: () {
-                                    Get.back();
-                                  },
-                                  onCancelPressed: () {},
-                                  context: context);
-                            }),
-                        (r) => null));
-              });
+          // state.maybeMap(
+          //     orElse: () {},
+          //     loaded: (s) {
+          //       s.optionFailedOrSuccess.fold(
+          //           () => null,
+          //           (a) => a.fold(
+          //               (l) => l.map(noData: (_) {
+          //                     Alerts.logoutAlert(
+          //                         withCancel: false,
+          //                         title: "No Data",
+          //                         subTitle: "There is no data",
+          //                         yesText: "OK",
+          //                         onPressed: () {
+          //                           Get.back();
+          //                         },
+          //                         onCancelPressed: () {},
+          //                         context: context);
+          //                   }, noInternet: (_) {
+          //                     Alerts.logoutAlert(
+          //                         withCancel: false,
+          //                         title: "No Connection",
+          //                         subTitle: "Check your connection",
+          //                         yesText: "OK",
+          //                         onPressed: () {
+          //                           Get.back();
+          //                         },
+          //                         onCancelPressed: () {},
+          //                         context: context);
+          //                   }, failed: (_) {
+          //                     Alerts.logoutAlert(
+          //                         withCancel: false,
+          //                         title: "Server Error",
+          //                         subTitle: "Please try again",
+          //                         yesText: "OK",
+          //                         onPressed: () {
+          //                           Get.back();
+          //                         },
+          //                         onCancelPressed: () {},
+          //                         context: context);
+          //                   }),
+          //               (r) => null));
+          //     });
         },
         builder: (BuildContext context, ViewDataState state) {
           return SafeArea(

@@ -48,6 +48,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed:
+  flutter_config:
   json_serializable:
   injectable_generator:
   bloc_test:

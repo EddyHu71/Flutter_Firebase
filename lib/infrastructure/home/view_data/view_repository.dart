@@ -29,8 +29,10 @@ class ViewRepository implements IViewRepository {
       }
       return left(ViewFailure.noData());
     } on NoInternetException {
+      print("Internet error");
       return left(ViewFailure.noInternet());
     } on ServerException {
+      print("Server error");
       return left(ViewFailure.failed());
     } catch (e) {
       print("Error ");
