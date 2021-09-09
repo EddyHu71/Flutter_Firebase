@@ -15,16 +15,17 @@ part 'login_bloc.freezed.dart';
 @injectable
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   late ILoginRepository loginRepository;
-  LoginBloc(LoginState loginState) : super(loginState);
+  LoginBloc(LoginState loginState) : super(_Initial());
   @override
   Stream<LoginState> mapEventToState(LoginEvent event) async* {
     // TODO: implement mapEventToState
-    yield LoginState.loading();
-    await Future.delayed(Duration(seconds: 4));
-    var response = await loginRepository.getLogin(
-      username: username,
-      password: password,
-    );
-    yield LoginState.loaded(optionFailedOrSuccess: optionOf(response));
+    yield* event.map(started: (e) async* {
+      yield LoginState.loading();
+      var response = await loginRepository.getLogin(
+        e.username,
+        e.password,
+      );
+      yield LoginState.loaded(optionFailedOrSuccess: optionOf(response));
+    });
   }
 }

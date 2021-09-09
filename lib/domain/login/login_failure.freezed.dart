@@ -16,16 +16,16 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$LoginFailureTearOff {
   const _$LoginFailureTearOff();
 
-  _NoData noData() {
-    return const _NoData();
+  _Failed failed() {
+    return const _Failed();
   }
 
   _NoInternet noInternet() {
     return const _NoInternet();
   }
 
-  _Failed failed() {
-    return const _Failed();
+  _LoginInvalid loginInvalid() {
+    return const _LoginInvalid();
   }
 }
 
@@ -36,31 +36,31 @@ const $LoginFailure = _$LoginFailureTearOff();
 mixin _$LoginFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() noData,
-    required TResult Function() noInternet,
     required TResult Function() failed,
+    required TResult Function() noInternet,
+    required TResult Function() loginInvalid,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? noData,
-    TResult Function()? noInternet,
     TResult Function()? failed,
+    TResult Function()? noInternet,
+    TResult Function()? loginInvalid,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_NoData value) noData,
-    required TResult Function(_NoInternet value) noInternet,
     required TResult Function(_Failed value) failed,
+    required TResult Function(_NoInternet value) noInternet,
+    required TResult Function(_LoginInvalid value) loginInvalid,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NoData value)? noData,
-    TResult Function(_NoInternet value)? noInternet,
     TResult Function(_Failed value)? failed,
+    TResult Function(_NoInternet value)? noInternet,
+    TResult Function(_LoginInvalid value)? loginInvalid,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -83,34 +83,34 @@ class _$LoginFailureCopyWithImpl<$Res> implements $LoginFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$NoDataCopyWith<$Res> {
-  factory _$NoDataCopyWith(_NoData value, $Res Function(_NoData) then) =
-      __$NoDataCopyWithImpl<$Res>;
+abstract class _$FailedCopyWith<$Res> {
+  factory _$FailedCopyWith(_Failed value, $Res Function(_Failed) then) =
+      __$FailedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$NoDataCopyWithImpl<$Res> extends _$LoginFailureCopyWithImpl<$Res>
-    implements _$NoDataCopyWith<$Res> {
-  __$NoDataCopyWithImpl(_NoData _value, $Res Function(_NoData) _then)
-      : super(_value, (v) => _then(v as _NoData));
+class __$FailedCopyWithImpl<$Res> extends _$LoginFailureCopyWithImpl<$Res>
+    implements _$FailedCopyWith<$Res> {
+  __$FailedCopyWithImpl(_Failed _value, $Res Function(_Failed) _then)
+      : super(_value, (v) => _then(v as _Failed));
 
   @override
-  _NoData get _value => super._value as _NoData;
+  _Failed get _value => super._value as _Failed;
 }
 
 /// @nodoc
 
-class _$_NoData implements _NoData {
-  const _$_NoData();
+class _$_Failed implements _Failed {
+  const _$_Failed();
 
   @override
   String toString() {
-    return 'LoginFailure.noData()';
+    return 'LoginFailure.failed()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _NoData);
+    return identical(this, other) || (other is _Failed);
   }
 
   @override
@@ -119,23 +119,23 @@ class _$_NoData implements _NoData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() noData,
-    required TResult Function() noInternet,
     required TResult Function() failed,
+    required TResult Function() noInternet,
+    required TResult Function() loginInvalid,
   }) {
-    return noData();
+    return failed();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? noData,
-    TResult Function()? noInternet,
     TResult Function()? failed,
+    TResult Function()? noInternet,
+    TResult Function()? loginInvalid,
     required TResult orElse(),
   }) {
-    if (noData != null) {
-      return noData();
+    if (failed != null) {
+      return failed();
     }
     return orElse();
   }
@@ -143,30 +143,30 @@ class _$_NoData implements _NoData {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_NoData value) noData,
-    required TResult Function(_NoInternet value) noInternet,
     required TResult Function(_Failed value) failed,
+    required TResult Function(_NoInternet value) noInternet,
+    required TResult Function(_LoginInvalid value) loginInvalid,
   }) {
-    return noData(this);
+    return failed(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NoData value)? noData,
-    TResult Function(_NoInternet value)? noInternet,
     TResult Function(_Failed value)? failed,
+    TResult Function(_NoInternet value)? noInternet,
+    TResult Function(_LoginInvalid value)? loginInvalid,
     required TResult orElse(),
   }) {
-    if (noData != null) {
-      return noData(this);
+    if (failed != null) {
+      return failed(this);
     }
     return orElse();
   }
 }
 
-abstract class _NoData implements LoginFailure {
-  const factory _NoData() = _$_NoData;
+abstract class _Failed implements LoginFailure {
+  const factory _Failed() = _$_Failed;
 }
 
 /// @nodoc
@@ -208,9 +208,9 @@ class _$_NoInternet implements _NoInternet {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() noData,
-    required TResult Function() noInternet,
     required TResult Function() failed,
+    required TResult Function() noInternet,
+    required TResult Function() loginInvalid,
   }) {
     return noInternet();
   }
@@ -218,9 +218,9 @@ class _$_NoInternet implements _NoInternet {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? noData,
-    TResult Function()? noInternet,
     TResult Function()? failed,
+    TResult Function()? noInternet,
+    TResult Function()? loginInvalid,
     required TResult orElse(),
   }) {
     if (noInternet != null) {
@@ -232,9 +232,9 @@ class _$_NoInternet implements _NoInternet {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_NoData value) noData,
-    required TResult Function(_NoInternet value) noInternet,
     required TResult Function(_Failed value) failed,
+    required TResult Function(_NoInternet value) noInternet,
+    required TResult Function(_LoginInvalid value) loginInvalid,
   }) {
     return noInternet(this);
   }
@@ -242,9 +242,9 @@ class _$_NoInternet implements _NoInternet {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NoData value)? noData,
-    TResult Function(_NoInternet value)? noInternet,
     TResult Function(_Failed value)? failed,
+    TResult Function(_NoInternet value)? noInternet,
+    TResult Function(_LoginInvalid value)? loginInvalid,
     required TResult orElse(),
   }) {
     if (noInternet != null) {
@@ -259,34 +259,36 @@ abstract class _NoInternet implements LoginFailure {
 }
 
 /// @nodoc
-abstract class _$FailedCopyWith<$Res> {
-  factory _$FailedCopyWith(_Failed value, $Res Function(_Failed) then) =
-      __$FailedCopyWithImpl<$Res>;
+abstract class _$LoginInvalidCopyWith<$Res> {
+  factory _$LoginInvalidCopyWith(
+          _LoginInvalid value, $Res Function(_LoginInvalid) then) =
+      __$LoginInvalidCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$FailedCopyWithImpl<$Res> extends _$LoginFailureCopyWithImpl<$Res>
-    implements _$FailedCopyWith<$Res> {
-  __$FailedCopyWithImpl(_Failed _value, $Res Function(_Failed) _then)
-      : super(_value, (v) => _then(v as _Failed));
+class __$LoginInvalidCopyWithImpl<$Res> extends _$LoginFailureCopyWithImpl<$Res>
+    implements _$LoginInvalidCopyWith<$Res> {
+  __$LoginInvalidCopyWithImpl(
+      _LoginInvalid _value, $Res Function(_LoginInvalid) _then)
+      : super(_value, (v) => _then(v as _LoginInvalid));
 
   @override
-  _Failed get _value => super._value as _Failed;
+  _LoginInvalid get _value => super._value as _LoginInvalid;
 }
 
 /// @nodoc
 
-class _$_Failed implements _Failed {
-  const _$_Failed();
+class _$_LoginInvalid implements _LoginInvalid {
+  const _$_LoginInvalid();
 
   @override
   String toString() {
-    return 'LoginFailure.failed()';
+    return 'LoginFailure.loginInvalid()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Failed);
+    return identical(this, other) || (other is _LoginInvalid);
   }
 
   @override
@@ -295,23 +297,23 @@ class _$_Failed implements _Failed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() noData,
-    required TResult Function() noInternet,
     required TResult Function() failed,
+    required TResult Function() noInternet,
+    required TResult Function() loginInvalid,
   }) {
-    return failed();
+    return loginInvalid();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? noData,
-    TResult Function()? noInternet,
     TResult Function()? failed,
+    TResult Function()? noInternet,
+    TResult Function()? loginInvalid,
     required TResult orElse(),
   }) {
-    if (failed != null) {
-      return failed();
+    if (loginInvalid != null) {
+      return loginInvalid();
     }
     return orElse();
   }
@@ -319,28 +321,28 @@ class _$_Failed implements _Failed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_NoData value) noData,
-    required TResult Function(_NoInternet value) noInternet,
     required TResult Function(_Failed value) failed,
+    required TResult Function(_NoInternet value) noInternet,
+    required TResult Function(_LoginInvalid value) loginInvalid,
   }) {
-    return failed(this);
+    return loginInvalid(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_NoData value)? noData,
-    TResult Function(_NoInternet value)? noInternet,
     TResult Function(_Failed value)? failed,
+    TResult Function(_NoInternet value)? noInternet,
+    TResult Function(_LoginInvalid value)? loginInvalid,
     required TResult orElse(),
   }) {
-    if (failed != null) {
-      return failed(this);
+    if (loginInvalid != null) {
+      return loginInvalid(this);
     }
     return orElse();
   }
 }
 
-abstract class _Failed implements LoginFailure {
-  const factory _Failed() = _$_Failed;
+abstract class _LoginInvalid implements LoginFailure {
+  const factory _LoginInvalid() = _$_LoginInvalid;
 }
