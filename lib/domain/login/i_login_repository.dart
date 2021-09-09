@@ -4,5 +4,6 @@ import 'package:flutter_firebase/domain/login/login_failure.dart';
 import 'package:flutter_firebase/infrastructure/login/login_item.dart';
 
 abstract class ILoginRepository {
-  Future<Either<LoginFailure, IList<LoginItem>>> getLogin(String id);
+  Future<Either<LoginFailure, IList<LoginItem>>> getLogin(
+      String username, String password);
 }

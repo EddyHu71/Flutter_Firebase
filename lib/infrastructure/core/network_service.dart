@@ -9,32 +9,30 @@ import 'package:injectable/injectable.dart';
 @LazySingleton(as: INetworkService)
 class NetworkService implements INetworkService {
   NetworkService(this._dio, this._connectivity);
+
   final Dio _dio;
   final Connectivity _connectivity;
 
   @override
-  Future<Response> getUrl({required String baseUrl}) async {
+  Future<Response> getUrl({required String path}) async {
     // TODO: implement getUrl
-    var connectivityResult = await _connectivity.checkConnectivity();
-    if (connectivityResult != ConnectivityResult.none) {
+    var connnectivityResult = await _connectivity.checkConnectivity();
+    if (connnectivityResult != ConnectivityResult.none) {
       try {
         Map<String, dynamic> headers = {
           'content-type': ContentType.json.mimeType,
           'accept': ContentType.json.mimeType
         };
         _dio.options.headers = headers;
-        print("getUrl executed");
-        print(baseUrl);
-        final response = await _dio.get(
-          '$baseUrl',
-        );
+
+        Response response = await _dio.get(path);
         return response;
       } on DioError {
-        print("Dio Error");
+        print("Dio error");
         throw ServerException();
       }
     } else {
-      print("No Internet");
+      print("No Internet exception");
       throw NoInternetException();
     }
   }

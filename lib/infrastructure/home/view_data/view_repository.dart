@@ -4,8 +4,8 @@ import 'package:flutter_firebase/domain/core/no_internet_exception.dart';
 import 'package:flutter_firebase/domain/core/server_exception.dart';
 import 'package:flutter_firebase/domain/home/view_data/i_view_repository.dart';
 import 'package:flutter_firebase/domain/home/view_data/view_failure.dart';
-import 'package:flutter_firebase/infrastructure/home/view_data/view_item.dart';
-import 'package:flutter_firebase/presentation/core/utils.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_firebase/models/view_item.dart';
 import 'package:injectable/injectable.dart';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 
@@ -16,11 +16,10 @@ class ViewRepository implements IViewRepository {
   @override
   Future<Either<ViewFailure, IList<ViewItem>>> getData() async {
     // TODO: implement getData
+    var API_KEY = dotenv.get("API_KEY");
     try {
-      var res = await _network.getUrl(baseUrl: Utils.API_KEY);
+      var res = await _network.getUrl(path: API_KEY);
       List datas = res.data as List;
-      print("Panjang data adalah ");
-      print(datas.length);
       if (datas.length > 0) {
         IList<ViewItem> items =
             List<ViewItem>.from(datas.map((e) => ViewItem.fromJson(e)))

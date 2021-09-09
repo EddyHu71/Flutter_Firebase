@@ -1,10 +1,9 @@
 import 'dart:io';
 import 'package:connectivity/connectivity.dart';
 import 'package:dio/adapter.dart';
-import 'package:flutter_firebase/infrastructure/core/logger_interceptor.dart';
-import 'package:flutter_firebase/presentation/core/utils.dart';
-import 'package:injectable/injectable.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_firebase/infrastructure/core/logger_interceptor.dart';
+import 'package:injectable/injectable.dart';
 
 @module
 abstract class RegisterModule {
@@ -12,7 +11,6 @@ abstract class RegisterModule {
   String get baseUrl =>
       "https://api.openweathermap.org/data/2.5/forecast?id=524901&appid=";
 
-  print(baseUrl);
   @lazySingleton
   Dio dio(@Named('baseUrl') String baseUrl) {
     Dio _dio = Dio();
@@ -38,6 +36,7 @@ abstract class RegisterModule {
         requestHeader: true,
         responseBody: true,
         responseHeader: true));
+        
     return _dio;
   }
 

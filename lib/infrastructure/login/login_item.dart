@@ -6,8 +6,7 @@ part 'login_item.g.dart';
 @freezed
 class LoginItem with _$LoginItem {
   const factory LoginItem(
-      {@JsonKey(name: "dt") required String dt,
-      required List main}) = _LoginItem;
+      {required String username, required String password}) = _LoginItem;
 
   factory LoginItem.fromJson(Map<String, dynamic> json) =>
       _$LoginItemFromJson(json);

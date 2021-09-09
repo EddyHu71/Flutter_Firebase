@@ -37,11 +37,11 @@ class Components {
           ));
 
   static Card weatherList(
-          {required String longitude,
-          required String lattitude,
-          required String title,
-          required VoidCallback onPressed,
-          required String description}) =>
+          {required int? longitude,
+          required int? lattitude,
+          required String? title,
+          required VoidCallback? onPressed,
+          required String? description}) =>
       Card(
           elevation: 2,
           shape:
@@ -64,20 +64,20 @@ class Components {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text("Lon : " + longitude,
+                          Text("Lon : " + longitude.toString(),
                               style: TextStyle(fontWeight: FontWeight.bold)),
                           SizedBox(width: 8),
-                          Text("Lat : " + lattitude,
+                          Text("Lat : " + lattitude.toString(),
                               style: TextStyle(fontWeight: FontWeight.bold)),
                         ],
                       )),
                     ),
                     Expanded(
                         flex: 1,
-                        child: Text(title,
+                        child: Text(title.toString(),
                             style: TextStyle(
                                 fontSize: 16.0, fontWeight: FontWeight.bold))),
-                    Expanded(flex: 3, child: Text(description)),
+                    Expanded(flex: 3, child: Text(description.toString())),
                   ],
                 ),
               )));
