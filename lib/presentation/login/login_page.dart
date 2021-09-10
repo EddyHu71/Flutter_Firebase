@@ -4,6 +4,7 @@ import 'package:flutter_firebase/presentation/core/utils.dart';
 import 'package:flutter_firebase/presentation/home/home_page.dart';
 import 'package:flutter_firebase/presentation/routes/routes.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends HookWidget {
   LoginPage({key}) : super(key: key);
@@ -54,11 +55,6 @@ class LoginPage extends HookWidget {
                             border: InputBorder.none,
                             prefixIcon: Icon(Icons.person),
                           ),
-                          validator: (value) => value == null
-                              ? "Username is empty"
-                              : value.length < 4
-                                  ? "Username is invalid"
-                                  : null,
                         ),
                       ),
                       Padding(
@@ -78,11 +74,6 @@ class LoginPage extends HookWidget {
                                   hidden = !hidden;
                                 },
                               )),
-                          validator: (value) => value == null
-                              ? "Password is empty"
-                              : value.length < 5
-                                  ? "Password is invalid"
-                                  : null,
                         ),
                       ),
                       SizedBox(height: 36),
@@ -91,7 +82,8 @@ class LoginPage extends HookWidget {
                         child: Components.button(
                             text: "Login",
                             onPressed: () {
-                              
+                              print("masuk Halaman Login");
+                              Get.off(HomePage());
                             }),
                       ),
                       SizedBox(height: 16),

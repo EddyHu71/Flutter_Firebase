@@ -8,9 +8,6 @@ part of 'view_item.dart';
 
 _$_ViewItem _$_$_ViewItemFromJson(Map<String, dynamic> json) {
   return _$_ViewItem(
-    cod: json['cod'] as String?,
-    message: json['message'] as int?,
-    cnt: json['cnt'] as int?,
     listData: (json['listData'] as List<dynamic>?)
         ?.map((e) => ListData.fromJson(e as Map<String, dynamic>))
         .toList(),
@@ -22,9 +19,6 @@ _$_ViewItem _$_$_ViewItemFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_ViewItemToJson(_$_ViewItem instance) =>
     <String, dynamic>{
-      'cod': instance.cod,
-      'message': instance.message,
-      'cnt': instance.cnt,
       'listData': instance.listData,
       'city': instance.city,
     };

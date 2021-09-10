@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 class Alerts {
   static Future<void> logoutAlert(
       {String key = "dialogalert",
-      required VoidCallback onPressed,
+      required VoidCallback? onPressed,
       required VoidCallback? onCancelPressed,
       required BuildContext context,
       bool withCancel = false,
@@ -24,8 +24,7 @@ class Alerts {
 
     buttons.add(TextButton(
         onPressed: () {
-          onCancelPressed?.call();
-          Get.back();
+          onPressed?.call();
         },
         child: Text(yesText)));
     return Get.dialog(

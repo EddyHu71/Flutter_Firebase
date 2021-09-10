@@ -9,9 +9,6 @@ part 'view_item.g.dart';
 @freezed
 class ViewItem with _$ViewItem {
   factory ViewItem({
-    String? cod,
-    int? message,
-    int? cnt,
     List<ListData>? listData,
     City? city,
   }) = _ViewItem;

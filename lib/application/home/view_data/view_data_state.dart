@@ -5,6 +5,6 @@ class ViewDataState with _$ViewDataState {
   const factory ViewDataState.initial() = _Initial;
   const factory ViewDataState.loading() = _Loading;
   const factory ViewDataState.loaded(
-      {required Option<Either<ViewFailure, IList<ViewItem>>>
+      {required Option<Either<ViewFailure, ViewItem>>
           optionFailedOrSuccess}) = _Loaded;
 }
