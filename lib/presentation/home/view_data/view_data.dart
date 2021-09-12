@@ -7,7 +7,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:flutter_firebase/application/home/view_data/view_data_bloc.dart';
+import 'package:flutter_firebase/application/view_data/view_data_bloc.dart';
 
 // ignore: must_be_immutable
 class ViewData extends HookWidget {
@@ -205,7 +205,7 @@ class ViewData extends HookWidget {
                                     (l) => Center(child: Text("No Data")),
                                     (item) => ListView.builder(
                                         primary: false,
-                                        itemCount: 10,
+                                        itemCount: item.listData?.length,
                                         physics: NeverScrollableScrollPhysics(),
                                         shrinkWrap: true,
                                         itemBuilder:
@@ -213,14 +213,16 @@ class ViewData extends HookWidget {
                                           return Components.weatherList(
                                               onPressed: () {
                                                 Get.toNamed(Routes.detailView,
-                                                    arguments: item);
+                                                    arguments:
+                                                        item);
                                               },
                                               longitude: item.city?.coord?.lat
                                                   ?.toInt(),
                                               lattitude: item.city?.coord?.lon
                                                   ?.toInt(),
                                               title: item.city?.name,
-                                              description: "Deskripsi");
+                                              description: item.listData?[index]
+                                                  .weather?[0].description);
                                         })));
                           },
                         ),

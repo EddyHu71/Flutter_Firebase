@@ -1,10 +1,9 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart' hide IList;
-import 'package:fast_immutable_collections/fast_immutable_collections.dart';
-import 'package:flutter_firebase/domain/home/view_data/view_failure.dart';
-import 'package:flutter_firebase/domain/home/view_data/i_view_repository.dart';
-import 'package:flutter_firebase/models/view_item.dart';
+import 'package:flutter_firebase/domain/view_data/view_failure.dart';
+import 'package:flutter_firebase/domain/view_data/i_view_repository.dart';
+import 'package:flutter_firebase/models/view_item/view_item.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 

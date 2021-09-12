@@ -1,4 +1,4 @@
-import 'package:flutter_firebase/models/view_item.dart';
+import 'package:flutter_firebase/models/view_item/view_item.dart';
 import 'package:flutter_firebase/presentation/home/home_page.dart';
 import 'package:flutter_firebase/presentation/home/view_data/detail_view_data.dart';
 import 'package:get/get.dart';

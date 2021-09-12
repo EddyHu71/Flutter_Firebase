@@ -9,9 +9,9 @@ import 'package:dio/dio.dart' as _i4;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'application/home/view_data/view_data_bloc.dart' as _i9;
+import 'application/view_data/view_data_bloc.dart' as _i9;
 import 'domain/core/i_network_service.dart' as _i5;
-import 'domain/home/view_data/i_view_repository.dart' as _i7;
+import 'domain/view_data/i_view_repository.dart' as _i7;
 import 'infrastructure/core/network_service.dart' as _i6;
 import 'infrastructure/core/register_module.dart' as _i10;
 import 'infrastructure/home/view_data/view_repository.dart'
