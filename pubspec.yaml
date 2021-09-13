@@ -30,12 +30,14 @@ dependencies:
   connectivity:
   flutter_bloc: ^7.0.0
   dio:
+  uuid:
   shimmer:
   bloc: ^7.0.0
   flutter_hooks: ^0.17.0
   google_sign_in:
   firebase_auth:
   json_annotation:
+  kt_dart:
   meta:
   injectable:
   freezed_annotation:

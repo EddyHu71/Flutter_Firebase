@@ -14,7 +14,7 @@ import 'domain/core/i_network_service.dart' as _i5;
 import 'domain/view_data/i_view_repository.dart' as _i7;
 import 'infrastructure/core/network_service.dart' as _i6;
 import 'infrastructure/core/register_module.dart' as _i10;
-import 'infrastructure/home/view_data/view_repository.dart'
+import 'infrastructure/view_data/view_repository.dart'
     as _i8; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
