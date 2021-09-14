@@ -23,7 +23,7 @@ class ViewDataBloc extends Bloc<ViewDataEvent, ViewDataState> {
     // TODO: implement mapEventToState
     yield* event.map(started: (_) async* {
       yield ViewDataState.loading();
-      await Future.delayed(Duration(seconds: 4));
+      // Future.delayed(Duration(seconds: 4));
       var response = await viewRepository.getData();
       yield ViewDataState.loaded(optionFailedOrSuccess: optionOf(response));
     });

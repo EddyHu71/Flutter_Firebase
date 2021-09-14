@@ -16,9 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$UserTearOff {
   const _$UserTearOff();
 
-  _User call({required EmailAddress emailAddress, required Password password}) {
+  _User call({required Username username, required Password password}) {
     return _User(
-      emailAddress: emailAddress,
+      username: username,
       password: password,
     );
   }
@@ -29,7 +29,7 @@ const $User = _$UserTearOff();
 
 /// @nodoc
 mixin _$User {
-  EmailAddress get emailAddress => throw _privateConstructorUsedError;
+  Username get username => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -40,7 +40,7 @@ mixin _$User {
 abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res>;
-  $Res call({EmailAddress emailAddress, Password password});
+  $Res call({Username username, Password password});
 }
 
 /// @nodoc
@@ -53,14 +53,14 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? emailAddress = freezed,
+    Object? username = freezed,
     Object? password = freezed,
   }) {
     return _then(_value.copyWith(
-      emailAddress: emailAddress == freezed
-          ? _value.emailAddress
-          : emailAddress // ignore: cast_nullable_to_non_nullable
-              as EmailAddress,
+      username: username == freezed
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as Username,
       password: password == freezed
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -74,7 +74,7 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   factory _$UserCopyWith(_User value, $Res Function(_User) then) =
       __$UserCopyWithImpl<$Res>;
   @override
-  $Res call({EmailAddress emailAddress, Password password});
+  $Res call({Username username, Password password});
 }
 
 /// @nodoc
@@ -88,14 +88,14 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? emailAddress = freezed,
+    Object? username = freezed,
     Object? password = freezed,
   }) {
     return _then(_User(
-      emailAddress: emailAddress == freezed
-          ? _value.emailAddress
-          : emailAddress // ignore: cast_nullable_to_non_nullable
-              as EmailAddress,
+      username: username == freezed
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as Username,
       password: password == freezed
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
@@ -107,25 +107,25 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_User implements _User {
-  const _$_User({required this.emailAddress, required this.password});
+  const _$_User({required this.username, required this.password});
 
   @override
-  final EmailAddress emailAddress;
+  final Username username;
   @override
   final Password password;
 
   @override
   String toString() {
-    return 'User(emailAddress: $emailAddress, password: $password)';
+    return 'User(username: $username, password: $password)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _User &&
-            (identical(other.emailAddress, emailAddress) ||
+            (identical(other.username, username) ||
                 const DeepCollectionEquality()
-                    .equals(other.emailAddress, emailAddress)) &&
+                    .equals(other.username, username)) &&
             (identical(other.password, password) ||
                 const DeepCollectionEquality()
                     .equals(other.password, password)));
@@ -134,7 +134,7 @@ class _$_User implements _User {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(emailAddress) ^
+      const DeepCollectionEquality().hash(username) ^
       const DeepCollectionEquality().hash(password);
 
   @JsonKey(ignore: true)
@@ -145,11 +145,10 @@ class _$_User implements _User {
 
 abstract class _User implements User {
   const factory _User(
-      {required EmailAddress emailAddress,
-      required Password password}) = _$_User;
+      {required Username username, required Password password}) = _$_User;
 
   @override
-  EmailAddress get emailAddress => throw _privateConstructorUsedError;
+  Username get username => throw _privateConstructorUsedError;
   @override
   Password get password => throw _privateConstructorUsedError;
   @override

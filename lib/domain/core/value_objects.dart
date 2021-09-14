@@ -2,9 +2,8 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter_firebase/domain/core/errors.dart';
 import 'package:flutter_firebase/domain/login/login_failure.dart';
-import 'package:uuid/uuid.dart';
 
-@freezed
+@immutable
 abstract class ValueObject<T> {
   const ValueObject();
   Either<LoginFailure<T>, T> get value;

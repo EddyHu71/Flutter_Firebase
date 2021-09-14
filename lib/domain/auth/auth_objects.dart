@@ -3,17 +3,17 @@ import 'package:flutter_firebase/domain/login/login_failure.dart';
 import 'package:flutter_firebase/domain/core/value_objects.dart';
 import 'package:flutter_firebase/domain/core/value_validators.dart';
 
-class EmailAddress extends ValueObject<String> {
+class Username extends ValueObject<String> {
   @override
   final Either<LoginFailure<String>, String> value;
 
-  factory EmailAddress(String input) {
+  factory Username(String input) {
     assert(input != null);
-    return EmailAddress._(
-      validateEmailAddress(input),
+    return Username._(
+      valideUsername(input),
     );
   }
-  const EmailAddress._(this.value);
+  const Username._(this.value);
 }
 
 class Password extends ValueObject<String> {

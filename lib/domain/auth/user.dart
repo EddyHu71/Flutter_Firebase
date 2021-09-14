@@ -1,4 +1,4 @@
-import 'package:flutter_firebase/domain/auth/value_objects.dart';
+import 'package:flutter_firebase/domain/auth/auth_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'user.freezed.dart';
@@ -6,7 +6,7 @@ part 'user.freezed.dart';
 @freezed
 abstract class User with _$User {
   const factory User({
-    required EmailAddress emailAddress,
+    required Username username,
     required Password password,
   }) = _User;
 }

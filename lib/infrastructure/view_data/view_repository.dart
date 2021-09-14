@@ -18,19 +18,8 @@ class ViewRepository implements IViewRepository {
     var API_KEY = dotenv.get("API_KEY");
     try {
       var res = await _network.getUrl(path: API_KEY);
-      Map<String, dynamic> jsons = res.data as Map<String, dynamic>;
-      // List datas = res.data as List;
-      // print(datas);
-      // if (datas.length > 0) {
-      // IList<ViewItem> items =
-      //     List<ViewItem>.from(datas.map((e) => ViewItem.fromJson(e)))
-      //         .toIList();
-
-      //   return right(items);
-      // }
-      if (jsons.isNotEmpty) {
+      if (res.data != null) {
         Map<String, dynamic> jsons = res.data as Map<String, dynamic>;
-
         return right(ViewItem.fromJson(jsons));
       }
       return left(ViewFailure.noData());

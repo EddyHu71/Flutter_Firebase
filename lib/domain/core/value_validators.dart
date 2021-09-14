@@ -1,6 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:kt_dart/kt.dart';
-import 'package:flutter_firebase/domain/auth/value_objects.dart';
 import 'package:flutter_firebase/domain/login/login_failure.dart';
 
 Either<LoginFailure<String>, String> validateStringNotEmpty(String input) {
@@ -11,13 +9,14 @@ Either<LoginFailure<String>, String> validateStringNotEmpty(String input) {
   }
 }
 
-Either<LoginFailure<String>, String> validateEmailAddress(String input) {
-  const emailRegex =
-      r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""";
-  if (RegExp(emailRegex).hasMatch(input)) {
-    return right(input);
+Either<LoginFailure<String>, String> valideUsername(String input) {
+  // const emailRegex =
+  //     r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""";
+  const angka = ".*[0-9].*";
+  if (RegExp(angka).hasMatch(input)) {
+    return left(LoginFailure.invalidUsername(failedValue: input));
   } else {
-    return left(LoginFailure.invalidEmail(failedValue: input));
+    return right(input);
   }
 }
 
