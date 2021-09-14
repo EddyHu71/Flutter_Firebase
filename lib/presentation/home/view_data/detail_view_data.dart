@@ -21,23 +21,33 @@ class DetailViewData extends HookWidget {
             centerTitle: true,
             title: Text("Details"),
           ),
-          body: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Text("Kota : ${viewItem?.city?.name}",
-                  style: TextStyle(fontWeight: FontWeight.bold)),
-              Container(
-                  child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text("Lattitude : ${viewItem?.city?.coord?.lat}"),
-                  Text("longitude : ${viewItem?.city?.coord?.lon}"),
-                ],
-              )),
-            ],
+          body: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 8.0, bottom: 16.0),
+                  child: Text("City : ${viewItem?.city?.name}",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
+                ),
+                Container(
+                    child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text("Lattitude : ${viewItem?.city?.coord?.lat}"),
+                    Text("Longitude : ${viewItem?.city?.coord?.lon}"),
+                  ],
+                )),
+// item.listData?[index]
+//                                                   .weather?[0].description
+                Text("Total Population : ${viewItem?.city?.population}")
+              ],
+            ),
           )),
     );
   }

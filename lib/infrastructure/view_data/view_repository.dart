@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart' hide IList;
-import 'package:flutter_firebase/domain/core/i_network_service.dart';
+import 'package:flutter_firebase/domain/view_data/i_network_service.dart';
 import 'package:flutter_firebase/domain/core/no_internet_exception.dart';
 import 'package:flutter_firebase/domain/core/server_exception.dart';
 import 'package:flutter_firebase/domain/view_data/i_view_repository.dart';

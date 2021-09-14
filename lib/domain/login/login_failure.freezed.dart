@@ -33,6 +33,14 @@ class _$LoginFailureTearOff {
       failedValue: failedValue,
     );
   }
+
+  _InvalidLogin<T> invalidLogin<T>() {
+    return _InvalidLogin<T>();
+  }
+
+  _Failed<T> failed<T>() {
+    return _Failed<T>();
+  }
 }
 
 /// @nodoc
@@ -40,13 +48,13 @@ const $LoginFailure = _$LoginFailureTearOff();
 
 /// @nodoc
 mixin _$LoginFailure<T> {
-  T get failedValue => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidUsername,
     required TResult Function(T failedValue) shortPassword,
+    required TResult Function() invalidLogin,
+    required TResult Function() failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,6 +62,8 @@ mixin _$LoginFailure<T> {
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidUsername,
     TResult Function(T failedValue)? shortPassword,
+    TResult Function()? invalidLogin,
+    TResult Function()? failed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +72,8 @@ mixin _$LoginFailure<T> {
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidUsername<T> value) invalidUsername,
     required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(_InvalidLogin<T> value) invalidLogin,
+    required TResult Function(_Failed<T> value) failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,12 +81,10 @@ mixin _$LoginFailure<T> {
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidUsername<T> value)? invalidUsername,
     TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(_InvalidLogin<T> value)? invalidLogin,
+    TResult Function(_Failed<T> value)? failed,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $LoginFailureCopyWith<T, LoginFailure<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -83,7 +93,6 @@ abstract class $LoginFailureCopyWith<T, $Res> {
   factory $LoginFailureCopyWith(
           LoginFailure<T> value, $Res Function(LoginFailure<T>) then) =
       _$LoginFailureCopyWithImpl<T, $Res>;
-  $Res call({T failedValue});
 }
 
 /// @nodoc
@@ -94,26 +103,12 @@ class _$LoginFailureCopyWithImpl<T, $Res>
   final LoginFailure<T> _value;
   // ignore: unused_field
   final $Res Function(LoginFailure<T>) _then;
-
-  @override
-  $Res call({
-    Object? failedValue = freezed,
-  }) {
-    return _then(_value.copyWith(
-      failedValue: failedValue == freezed
-          ? _value.failedValue
-          : failedValue // ignore: cast_nullable_to_non_nullable
-              as T,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class $EmptyCopyWith<T, $Res>
-    implements $LoginFailureCopyWith<T, $Res> {
+abstract class $EmptyCopyWith<T, $Res> {
   factory $EmptyCopyWith(Empty<T> value, $Res Function(Empty<T>) then) =
       _$EmptyCopyWithImpl<T, $Res>;
-  @override
   $Res call({T failedValue});
 }
 
@@ -176,6 +171,8 @@ class _$Empty<T> implements Empty<T> {
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidUsername,
     required TResult Function(T failedValue) shortPassword,
+    required TResult Function() invalidLogin,
+    required TResult Function() failed,
   }) {
     return empty(failedValue);
   }
@@ -186,6 +183,8 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidUsername,
     TResult Function(T failedValue)? shortPassword,
+    TResult Function()? invalidLogin,
+    TResult Function()? failed,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -200,6 +199,8 @@ class _$Empty<T> implements Empty<T> {
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidUsername<T> value) invalidUsername,
     required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(_InvalidLogin<T> value) invalidLogin,
+    required TResult Function(_Failed<T> value) failed,
   }) {
     return empty(this);
   }
@@ -210,6 +211,8 @@ class _$Empty<T> implements Empty<T> {
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidUsername<T> value)? invalidUsername,
     TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(_InvalidLogin<T> value)? invalidLogin,
+    TResult Function(_Failed<T> value)? failed,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -222,21 +225,17 @@ class _$Empty<T> implements Empty<T> {
 abstract class Empty<T> implements LoginFailure<T> {
   const factory Empty({required T failedValue}) = _$Empty<T>;
 
-  @override
   T get failedValue => throw _privateConstructorUsedError;
-  @override
   @JsonKey(ignore: true)
   $EmptyCopyWith<T, Empty<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $InvalidUsernameCopyWith<T, $Res>
-    implements $LoginFailureCopyWith<T, $Res> {
+abstract class $InvalidUsernameCopyWith<T, $Res> {
   factory $InvalidUsernameCopyWith(
           InvalidUsername<T> value, $Res Function(InvalidUsername<T>) then) =
       _$InvalidUsernameCopyWithImpl<T, $Res>;
-  @override
   $Res call({T failedValue});
 }
 
@@ -301,6 +300,8 @@ class _$InvalidUsername<T> implements InvalidUsername<T> {
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidUsername,
     required TResult Function(T failedValue) shortPassword,
+    required TResult Function() invalidLogin,
+    required TResult Function() failed,
   }) {
     return invalidUsername(failedValue);
   }
@@ -311,6 +312,8 @@ class _$InvalidUsername<T> implements InvalidUsername<T> {
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidUsername,
     TResult Function(T failedValue)? shortPassword,
+    TResult Function()? invalidLogin,
+    TResult Function()? failed,
     required TResult orElse(),
   }) {
     if (invalidUsername != null) {
@@ -325,6 +328,8 @@ class _$InvalidUsername<T> implements InvalidUsername<T> {
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidUsername<T> value) invalidUsername,
     required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(_InvalidLogin<T> value) invalidLogin,
+    required TResult Function(_Failed<T> value) failed,
   }) {
     return invalidUsername(this);
   }
@@ -335,6 +340,8 @@ class _$InvalidUsername<T> implements InvalidUsername<T> {
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidUsername<T> value)? invalidUsername,
     TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(_InvalidLogin<T> value)? invalidLogin,
+    TResult Function(_Failed<T> value)? failed,
     required TResult orElse(),
   }) {
     if (invalidUsername != null) {
@@ -348,21 +355,17 @@ abstract class InvalidUsername<T> implements LoginFailure<T> {
   const factory InvalidUsername({required T failedValue}) =
       _$InvalidUsername<T>;
 
-  @override
   T get failedValue => throw _privateConstructorUsedError;
-  @override
   @JsonKey(ignore: true)
   $InvalidUsernameCopyWith<T, InvalidUsername<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ShortPasswordCopyWith<T, $Res>
-    implements $LoginFailureCopyWith<T, $Res> {
+abstract class $ShortPasswordCopyWith<T, $Res> {
   factory $ShortPasswordCopyWith(
           ShortPassword<T> value, $Res Function(ShortPassword<T>) then) =
       _$ShortPasswordCopyWithImpl<T, $Res>;
-  @override
   $Res call({T failedValue});
 }
 
@@ -427,6 +430,8 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidUsername,
     required TResult Function(T failedValue) shortPassword,
+    required TResult Function() invalidLogin,
+    required TResult Function() failed,
   }) {
     return shortPassword(failedValue);
   }
@@ -437,6 +442,8 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidUsername,
     TResult Function(T failedValue)? shortPassword,
+    TResult Function()? invalidLogin,
+    TResult Function()? failed,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -451,6 +458,8 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidUsername<T> value) invalidUsername,
     required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(_InvalidLogin<T> value) invalidLogin,
+    required TResult Function(_Failed<T> value) failed,
   }) {
     return shortPassword(this);
   }
@@ -461,6 +470,8 @@ class _$ShortPassword<T> implements ShortPassword<T> {
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidUsername<T> value)? invalidUsername,
     TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(_InvalidLogin<T> value)? invalidLogin,
+    TResult Function(_Failed<T> value)? failed,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -473,10 +484,201 @@ class _$ShortPassword<T> implements ShortPassword<T> {
 abstract class ShortPassword<T> implements LoginFailure<T> {
   const factory ShortPassword({required T failedValue}) = _$ShortPassword<T>;
 
-  @override
   T get failedValue => throw _privateConstructorUsedError;
-  @override
   @JsonKey(ignore: true)
   $ShortPasswordCopyWith<T, ShortPassword<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$InvalidLoginCopyWith<T, $Res> {
+  factory _$InvalidLoginCopyWith(
+          _InvalidLogin<T> value, $Res Function(_InvalidLogin<T>) then) =
+      __$InvalidLoginCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$InvalidLoginCopyWithImpl<T, $Res>
+    extends _$LoginFailureCopyWithImpl<T, $Res>
+    implements _$InvalidLoginCopyWith<T, $Res> {
+  __$InvalidLoginCopyWithImpl(
+      _InvalidLogin<T> _value, $Res Function(_InvalidLogin<T>) _then)
+      : super(_value, (v) => _then(v as _InvalidLogin<T>));
+
+  @override
+  _InvalidLogin<T> get _value => super._value as _InvalidLogin<T>;
+}
+
+/// @nodoc
+
+class _$_InvalidLogin<T> implements _InvalidLogin<T> {
+  const _$_InvalidLogin();
+
+  @override
+  String toString() {
+    return 'LoginFailure<$T>.invalidLogin()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _InvalidLogin<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) invalidUsername,
+    required TResult Function(T failedValue) shortPassword,
+    required TResult Function() invalidLogin,
+    required TResult Function() failed,
+  }) {
+    return invalidLogin();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? invalidUsername,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function()? invalidLogin,
+    TResult Function()? failed,
+    required TResult orElse(),
+  }) {
+    if (invalidLogin != null) {
+      return invalidLogin();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(InvalidUsername<T> value) invalidUsername,
+    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(_InvalidLogin<T> value) invalidLogin,
+    required TResult Function(_Failed<T> value) failed,
+  }) {
+    return invalidLogin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(InvalidUsername<T> value)? invalidUsername,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(_InvalidLogin<T> value)? invalidLogin,
+    TResult Function(_Failed<T> value)? failed,
+    required TResult orElse(),
+  }) {
+    if (invalidLogin != null) {
+      return invalidLogin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InvalidLogin<T> implements LoginFailure<T> {
+  const factory _InvalidLogin() = _$_InvalidLogin<T>;
+}
+
+/// @nodoc
+abstract class _$FailedCopyWith<T, $Res> {
+  factory _$FailedCopyWith(_Failed<T> value, $Res Function(_Failed<T>) then) =
+      __$FailedCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$FailedCopyWithImpl<T, $Res> extends _$LoginFailureCopyWithImpl<T, $Res>
+    implements _$FailedCopyWith<T, $Res> {
+  __$FailedCopyWithImpl(_Failed<T> _value, $Res Function(_Failed<T>) _then)
+      : super(_value, (v) => _then(v as _Failed<T>));
+
+  @override
+  _Failed<T> get _value => super._value as _Failed<T>;
+}
+
+/// @nodoc
+
+class _$_Failed<T> implements _Failed<T> {
+  const _$_Failed();
+
+  @override
+  String toString() {
+    return 'LoginFailure<$T>.failed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _Failed<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) invalidUsername,
+    required TResult Function(T failedValue) shortPassword,
+    required TResult Function() invalidLogin,
+    required TResult Function() failed,
+  }) {
+    return failed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? invalidUsername,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function()? invalidLogin,
+    TResult Function()? failed,
+    required TResult orElse(),
+  }) {
+    if (failed != null) {
+      return failed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(InvalidUsername<T> value) invalidUsername,
+    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(_InvalidLogin<T> value) invalidLogin,
+    required TResult Function(_Failed<T> value) failed,
+  }) {
+    return failed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(InvalidUsername<T> value)? invalidUsername,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(_InvalidLogin<T> value)? invalidLogin,
+    TResult Function(_Failed<T> value)? failed,
+    required TResult orElse(),
+  }) {
+    if (failed != null) {
+      return failed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Failed<T> implements LoginFailure<T> {
+  const factory _Failed() = _$_Failed<T>;
 }

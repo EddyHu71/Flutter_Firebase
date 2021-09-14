@@ -12,8 +12,8 @@ import 'package:injectable/injectable.dart' as _i2;
 import 'application/login/login_form_bloc.dart' as _i6;
 import 'application/view_data/view_data_bloc.dart' as _i13;
 import 'domain/auth/i_auth_facade.dart' as _i7;
-import 'domain/core/i_network_service.dart' as _i9;
 import 'domain/login/i_login_repository.dart' as _i4;
+import 'domain/view_data/i_network_service.dart' as _i9;
 import 'domain/view_data/i_view_repository.dart' as _i11;
 import 'infrastructure/core/network_service.dart' as _i10;
 import 'infrastructure/core/register_module.dart' as _i14;
@@ -28,7 +28,7 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   final gh = _i2.GetItHelper(get, environment, environmentFilter);
   final registerModule = _$RegisterModule();
   gh.lazySingleton<_i3.Connectivity>(() => registerModule.connectivity);
-  gh.lazySingleton<_i4.ILoginnRepository>(() => _i5.LoginRepository());
+  gh.lazySingleton<_i4.ILoginRepository>(() => _i5.LoginRepository());
   gh.factory<_i6.LoginFormBloc>(
       () => _i6.LoginFormBloc(get<_i7.IAuthFacade>()));
   gh.factory<String>(() => registerModule.baseUrl, instanceName: 'baseUrl');

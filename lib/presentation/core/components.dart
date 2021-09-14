@@ -37,8 +37,8 @@ class Components {
           ));
 
   static Card weatherList(
-          {required int? longitude,
-          required int? lattitude,
+          {required double? longitude,
+          required double? lattitude,
           required String? title,
           required VoidCallback? onPressed,
           required String? description}) =>

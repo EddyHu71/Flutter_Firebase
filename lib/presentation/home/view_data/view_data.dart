@@ -213,13 +213,10 @@ class ViewData extends HookWidget {
                                           return Components.weatherList(
                                               onPressed: () {
                                                 Get.toNamed(Routes.detailView,
-                                                    arguments:
-                                                        item);
+                                                    arguments: item);
                                               },
-                                              longitude: item.city?.coord?.lat
-                                                  ?.toInt(),
-                                              lattitude: item.city?.coord?.lon
-                                                  ?.toInt(),
+                                              longitude: item.city?.coord?.lat!,
+                                              lattitude: item.city?.coord?.lon!,
                                               title: item.city?.name,
                                               description: item.listData?[index]
                                                   .weather?[0].description);

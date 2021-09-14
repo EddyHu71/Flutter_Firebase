@@ -14,8 +14,8 @@ part 'login_form_bloc.freezed.dart';
 
 @injectable
 class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
-  LoginFormBloc(this._authFacade) : super(LoginFormState.initial());
   final IAuthFacade _authFacade;
+  LoginFormBloc(this._authFacade) : super(LoginFormState.initial());
 
   @override
   Stream<LoginFormState> mapEventToState(LoginFormEvent event) async* {
@@ -34,11 +34,7 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
         );
       },
       signInWithUsernameAndPasswordPressed: (e) async* {
-        yield*
-            // _performActionOnAuthFacadeWithEmailAndPassword(
-            // ({password, username}) => _authFacade.signInWithEmailAndPassword(
-            //     username: this.username, password: this.password));
-            _performActionOnAuthFacadeWithEmailAndPassword(
+        yield* _performActionOnAuthFacadeWithEmailAndPassword(
           _authFacade.signInWithEmailAndPassword,
         );
       },

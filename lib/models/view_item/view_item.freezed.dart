@@ -20,7 +20,8 @@ ViewItem _$ViewItemFromJson(Map<String, dynamic> json) {
 class _$ViewItemTearOff {
   const _$ViewItemTearOff();
 
-  _ViewItem call({List<ListData>? listData, City? city}) {
+  _ViewItem call(
+      {@JsonKey(name: 'list') List<ListData>? listData, City? city}) {
     return _ViewItem(
       listData: listData,
       city: city,
@@ -37,6 +38,7 @@ const $ViewItem = _$ViewItemTearOff();
 
 /// @nodoc
 mixin _$ViewItem {
+  @JsonKey(name: 'list')
   List<ListData>? get listData => throw _privateConstructorUsedError;
   City? get city => throw _privateConstructorUsedError;
 
@@ -50,7 +52,7 @@ mixin _$ViewItem {
 abstract class $ViewItemCopyWith<$Res> {
   factory $ViewItemCopyWith(ViewItem value, $Res Function(ViewItem) then) =
       _$ViewItemCopyWithImpl<$Res>;
-  $Res call({List<ListData>? listData, City? city});
+  $Res call({@JsonKey(name: 'list') List<ListData>? listData, City? city});
 
   $CityCopyWith<$Res>? get city;
 }
@@ -97,7 +99,7 @@ abstract class _$ViewItemCopyWith<$Res> implements $ViewItemCopyWith<$Res> {
   factory _$ViewItemCopyWith(_ViewItem value, $Res Function(_ViewItem) then) =
       __$ViewItemCopyWithImpl<$Res>;
   @override
-  $Res call({List<ListData>? listData, City? city});
+  $Res call({@JsonKey(name: 'list') List<ListData>? listData, City? city});
 
   @override
   $CityCopyWith<$Res>? get city;
@@ -133,12 +135,13 @@ class __$ViewItemCopyWithImpl<$Res> extends _$ViewItemCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ViewItem implements _ViewItem {
-  _$_ViewItem({this.listData, this.city});
+  _$_ViewItem({@JsonKey(name: 'list') this.listData, this.city});
 
   factory _$_ViewItem.fromJson(Map<String, dynamic> json) =>
       _$_$_ViewItemFromJson(json);
 
   @override
+  @JsonKey(name: 'list')
   final List<ListData>? listData;
   @override
   final City? city;
@@ -177,11 +180,14 @@ class _$_ViewItem implements _ViewItem {
 }
 
 abstract class _ViewItem implements ViewItem {
-  factory _ViewItem({List<ListData>? listData, City? city}) = _$_ViewItem;
+  factory _ViewItem(
+      {@JsonKey(name: 'list') List<ListData>? listData,
+      City? city}) = _$_ViewItem;
 
   factory _ViewItem.fromJson(Map<String, dynamic> json) = _$_ViewItem.fromJson;
 
   @override
+  @JsonKey(name: 'list')
   List<ListData>? get listData => throw _privateConstructorUsedError;
   @override
   City? get city => throw _privateConstructorUsedError;

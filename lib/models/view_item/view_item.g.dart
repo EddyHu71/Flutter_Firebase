@@ -8,7 +8,7 @@ part of 'view_item.dart';
 
 _$_ViewItem _$_$_ViewItemFromJson(Map<String, dynamic> json) {
   return _$_ViewItem(
-    listData: (json['listData'] as List<dynamic>?)
+    listData: (json['list'] as List<dynamic>?)
         ?.map((e) => ListData.fromJson(e as Map<String, dynamic>))
         .toList(),
     city: json['city'] == null
@@ -19,6 +19,6 @@ _$_ViewItem _$_$_ViewItemFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_ViewItemToJson(_$_ViewItem instance) =>
     <String, dynamic>{
-      'listData': instance.listData,
+      'list': instance.listData,
       'city': instance.city,
     };

@@ -1,6 +1,4 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_firebase/application/login/login_form_bloc.dart';
-import 'package:flutter_firebase/injection.dart';
+
 import 'package:flutter_firebase/models/view_item/view_item.dart';
 import 'package:flutter_firebase/presentation/home/home_page.dart';
 import 'package:flutter_firebase/presentation/home/view_data/detail_view_data.dart';
@@ -8,14 +6,16 @@ import 'package:get/get.dart';
 import 'package:flutter_firebase/presentation/login/login_page.dart';
 
 class Routes {
-  static final String login = "/";
+  static final String login = "/login";
   static final String home = "/home";
   static final String detailView = "/detailview";
   final List<GetPage> routes = [
     GetPage(
-        name: Routes.login,
-        page: () => BlocProvider(
-            create: (context) => getIt<LoginFormBloc>(), child: LoginPage())),
+      name: Routes.login,
+      page: () => LoginPage(),
+      // BlocProvider<LoginFormBloc>(
+      //     create: (context) => getIt<LoginFormBloc>(), child: )
+    ),
     GetPage(
       name: Routes.home,
       page: () => HomePage(),
