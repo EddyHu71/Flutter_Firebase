@@ -1,4 +1,3 @@
-
 import 'package:flutter_firebase/models/view_item/view_item.dart';
 import 'package:flutter_firebase/presentation/home/home_page.dart';
 import 'package:flutter_firebase/presentation/home/view_data/detail_view_data.dart';
@@ -13,8 +12,6 @@ class Routes {
     GetPage(
       name: Routes.login,
       page: () => LoginPage(),
-      // BlocProvider<LoginFormBloc>(
-      //     create: (context) => getIt<LoginFormBloc>(), child: )
     ),
     GetPage(
       name: Routes.home,

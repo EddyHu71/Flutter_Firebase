@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_firebase/application/login/login_form_bloc.dart';
+import 'package:flutter_firebase/domain/auth/auth_objects.dart';
+import 'package:flutter_firebase/domain/auth/i_auth_facade.dart';
 import 'package:flutter_firebase/injection.dart';
 import 'package:flutter_firebase/presentation/core/alerts.dart';
 import 'package:flutter_firebase/presentation/core/components.dart';
@@ -10,11 +12,13 @@ import 'package:get/get.dart';
 
 class LoginPage extends HookWidget {
   LoginPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     bool hidden = true;
+
     // TODO: implement build
-    return BlocProvider(
+    return BlocProvider<LoginFormBloc>(
         create: (context) => getIt<LoginFormBloc>(),
         child: BlocConsumer<LoginFormBloc, LoginFormState>(
           listener: (BuildContext context, LoginFormState state) {
@@ -56,7 +60,7 @@ class LoginPage extends HookWidget {
                         },
                     (r) => null));
           },
-          builder: (context, state) {
+          builder: (BuildContext context, LoginFormState state) {
             return Scaffold(
                 body: SafeArea(
               child: ListView(
@@ -97,7 +101,13 @@ class LoginPage extends HookWidget {
                                     prefixIcon: Icon(Icons.person),
                                   ),
                                   onChanged: (value) => null,
-                                  validator: (context) => null,
+                                  validator: (context) => state.username.value
+                                      .fold(
+                                          (l) => l.maybeMap(
+                                              empty: (_) => null,
+                                              invalidUsername: (value) => null,
+                                              orElse: () => null),
+                                          (r) => null),
                                 ),
                               ),
                               Padding(
@@ -106,7 +116,7 @@ class LoginPage extends HookWidget {
                                 child: TextFormField(
                                   obscureText: hidden,
                                   onChanged: (value) => null,
-                                  validator: (context) => state.username.value
+                                  validator: (context) => state.password.value
                                       .fold(
                                           (l) => l.maybeMap(
                                               empty: (_) => null,
@@ -134,6 +144,7 @@ class LoginPage extends HookWidget {
                                 child: Components.button(
                                     text: "Login",
                                     onPressed: () {
+                                      state.authFailureOrSuccessOption;
                                       // Get.off(HomePage());
                                     }),
                               ),

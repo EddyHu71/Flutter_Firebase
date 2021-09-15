@@ -10,7 +10,7 @@ class Username extends ValueObject<String> {
   factory Username(String input) {
     assert(input != null);
     return Username._(
-      valideUsername(input),
+      validateUsername(input),
     );
   }
   const Username._(this.value);

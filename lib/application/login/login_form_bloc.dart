@@ -1,5 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter_firebase/domain/auth/user.dart';
+import 'package:flutter_firebase/infrastructure/login/login_repository.dart';
 import 'package:meta/meta.dart';
 import 'package:flutter_firebase/domain/auth/i_auth_facade.dart';
 import 'package:flutter_firebase/domain/auth/auth_objects.dart';
@@ -48,7 +50,8 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
     })
         forwardedCall,
   ) async* {
-    Either<AuthFailure, Unit>? failOrSuccess;
+    late Either<AuthFailure, Unit>? failOrSuccess;
+    LoginRepository? loginRepository;
 
     final isUsernameValid = state.username.isValid();
     final isPasswordValid = state.password.isValid();
@@ -58,14 +61,18 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
         isSubmitting: false,
         authFailureOrSuccessOption: none(),
       );
-
       failOrSuccess = await forwardedCall(
           username: state.username, password: state.password);
+
+      var response = await loginRepository?.getLogin(
+        state.username.value.toString(),
+        state.username.value.toString(),
+      );
     }
 
-    yield state.copyWith(
-        isSubmitting: false,
-        showErrorMessages: false,
-        authFailureOrSuccessOption: optionOf(failOrSuccess));
+    // yield state.copyWith(
+    //     isSubmitting: false,
+    //     showErrorMessages: false,
+    //     authFailureOrSuccessOption: optionOf(failOrSuccess));
   }
 }

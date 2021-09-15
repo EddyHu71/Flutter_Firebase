@@ -9,9 +9,7 @@ Either<LoginFailure<String>, String> validateStringNotEmpty(String input) {
   }
 }
 
-Either<LoginFailure<String>, String> valideUsername(String input) {
-  // const emailRegex =
-  //     r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""";
+Either<LoginFailure<String>, String> validateUsername(String input) {
   const angka = ".*[0-9].*";
   if (RegExp(angka).hasMatch(input)) {
     return left(LoginFailure.invalidUsername(failedValue: input));
@@ -21,7 +19,7 @@ Either<LoginFailure<String>, String> valideUsername(String input) {
 }
 
 Either<LoginFailure<String>, String> validatePassword(String input) {
-  if (input.length >= 6) {
+  if (input.length >= 4) {
     return right(input);
   } else {
     return left(LoginFailure.shortPassword(failedValue: input));

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase/presentation/core/utils.dart';
 import 'package:injectable/injectable.dart';
 import 'package:get/get.dart';
 import 'package:flutter_firebase/presentation/routes/routes.dart';
 import 'package:flutter_firebase/injection.dart';
-import 'package:flutter_config/flutter_config.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
