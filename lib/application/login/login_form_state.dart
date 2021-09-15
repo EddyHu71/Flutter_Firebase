@@ -8,7 +8,7 @@ abstract class LoginFormState with _$LoginFormState {
     required bool showErrorMessages,
     required bool isLoading,
     required bool isSubmitting,
-    required Option<Either<AuthFailure, User>> authFailureOrSuccessOption,
+    required Option<Either<LoginFailure, Unit>> authFailureOrSuccessOption,
   }) = _LoginFormState;
 
   factory LoginFormState.initial() => LoginFormState(

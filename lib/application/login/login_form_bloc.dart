@@ -1,12 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter_firebase/domain/auth/user.dart';
+import 'package:flutter_firebase/domain/login/i_login_repository.dart';
+import 'package:flutter_firebase/domain/login/login_failure.dart';
 import 'package:flutter_firebase/infrastructure/login/login_repository.dart';
 import 'package:meta/meta.dart';
-import 'package:flutter_firebase/domain/auth/i_auth_facade.dart';
-import 'package:flutter_firebase/domain/auth/auth_objects.dart';
+import 'package:flutter_firebase/domain/login/auth_objects.dart';
 import 'package:injectable/injectable.dart';
-import 'package:flutter_firebase/domain/auth/auth_failure.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'login_form_event.dart';
@@ -16,8 +15,8 @@ part 'login_form_bloc.freezed.dart';
 
 @injectable
 class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
-  final IAuthFacade _authFacade;
-  LoginFormBloc(this._authFacade) : super(LoginFormState.initial());
+  final ILoginRepository _IloginRepository;
+  LoginFormBloc(this._IloginRepository) : super(LoginFormState.initial());
 
   @override
   Stream<LoginFormState> mapEventToState(LoginFormEvent event) async* {
@@ -36,40 +35,32 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
         );
       },
       signInWithUsernameAndPasswordPressed: (e) async* {
-        yield* _performActionOnAuthFacadeWithEmailAndPassword(
-          _authFacade.signInWithEmailAndPassword,
-        );
+        yield* _performActionOnAuthFacadeWithEmailAndPassword();
       },
     );
   }
 
-  Stream<LoginFormState> _performActionOnAuthFacadeWithEmailAndPassword(
-    Future<Either<AuthFailure, User>> Function({
-      required Username username,
-      required Password password,
-    })
-        forwardedCall,
-  ) async* {
-    late Either<AuthFailure, User>? failOrSuccess;
-    LoginRepository? loginRepository;
+  Stream<LoginFormState>
+      _performActionOnAuthFacadeWithEmailAndPassword() async* {
+    Either<LoginFailure, Unit>? failOrSuccess;
     final isUsernameValid = state.username.isValid();
     final isPasswordValid = state.password.isValid();
 
     if (isUsernameValid && isPasswordValid) {
       yield state.copyWith(
         isSubmitting: false,
+        isLoading: true,
         authFailureOrSuccessOption: none(),
       );
-      failOrSuccess = await forwardedCall(
-          username: state.username, password: state.password);
-      var response = await loginRepository?.getLogin(
+      await Future.delayed(Duration(seconds: 2));
+      failOrSuccess = await _IloginRepository.getLogin(
           state.username.getOrCrash(), state.password.getOrCrash());
-      print(response);
-     
+      print("Login success");
     }
 
     yield state.copyWith(
         isSubmitting: false,
+        isLoading: false,
         showErrorMessages: true,
         authFailureOrSuccessOption: optionOf(failOrSuccess));
   }

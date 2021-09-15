@@ -11,7 +11,7 @@ abstract class LoginFailure<T> with _$LoginFailure<T> {
   const factory LoginFailure.invalidUsername({
     required T failedValue,
   }) = InvalidUsername<T>;
-  const factory LoginFailure.shortPassword({
+  const factory LoginFailure.invalidPassword({
     required T failedValue,
   }) = ShortPassword<T>;
 

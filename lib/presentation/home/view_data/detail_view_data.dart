@@ -10,7 +10,7 @@ import 'package:shimmer/shimmer.dart';
 import 'package:flutter_firebase/application/view_data/view_data_bloc.dart';
 
 class DetailViewData extends HookWidget {
-  final ViewItem? viewItem;
+  final ViewItem viewItem;
   const DetailViewData({Key? key, required this.viewItem}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -28,9 +28,11 @@ class DetailViewData extends HookWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.max,
               children: [
+                Text("${viewItem.city?.name!}"),
+                Text(viewItem.city != null ? viewItem.city!.name! : "Name"),
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0, bottom: 16.0),
-                  child: Text("City : ${viewItem?.city?.name}",
+                  child: Text("City : ${viewItem.city?.name}",
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
                 ),
@@ -39,13 +41,13 @@ class DetailViewData extends HookWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text("Lattitude : ${viewItem?.city?.coord?.lat}"),
-                    Text("Longitude : ${viewItem?.city?.coord?.lon}"),
+                    Text("Lattitude : ${viewItem.city?.coord?.lat}"),
+                    Text("Longitude : ${viewItem.city?.coord?.lon}"),
                   ],
                 )),
 // item.listData?[index]
 //                                                   .weather?[0].description
-                Text("Total Population : ${viewItem?.city?.population}")
+                Text("Total Population : ${viewItem.city?.population}")
               ],
             ),
           )),

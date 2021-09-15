@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_firebase/application/login/login_form_bloc.dart';
-import 'package:flutter_firebase/domain/auth/auth_objects.dart';
+import 'package:flutter_firebase/domain/login/auth_objects.dart';
 import 'package:flutter_firebase/domain/auth/i_auth_facade.dart';
 import 'package:flutter_firebase/injection.dart';
 import 'package:flutter_firebase/presentation/core/alerts.dart';
 import 'package:flutter_firebase/presentation/core/components.dart';
 import 'package:flutter_firebase/presentation/core/utils.dart';
+import 'package:flutter_firebase/presentation/routes/routes.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
 
@@ -23,42 +24,22 @@ class LoginPage extends HookWidget {
         child: BlocConsumer<LoginFormBloc, LoginFormState>(
           listener: (BuildContext context, LoginFormState state) {
             state.authFailureOrSuccessOption.fold(
-                () => {},
+                () => null,
                 (a) => a.fold(
-                    (l) => {
-                          l.map(emptyInput: (_) {
-                            Alerts.logoutAlert(
-                                title: "Empty input",
-                                subTitle: "Your username or password are empty",
-                                withCancel: false,
-                                onPressed: () {
-                                  Get.back();
-                                },
-                                onCancelPressed: () {},
-                                context: context);
-                          }, serverError: (_) {
-                            Alerts.logoutAlert(
-                                title: "Server error",
-                                subTitle: "Server is error. Please wait.",
-                                withCancel: false,
-                                onPressed: () {
-                                  Get.back();
-                                },
-                                onCancelPressed: () {},
-                                context: context);
-                          }, invalidEmailAndPasswordCombination: (_) {
-                            Alerts.logoutAlert(
-                                title: "Invalid Login",
-                                subTitle: "Your email or password are invalid",
-                                withCancel: false,
-                                onPressed: () {
-                                  Get.back();
-                                },
-                                onCancelPressed: () {},
-                                context: context);
-                          })
-                        },
-                    (r) => null));
+                    (l) => l.maybeMap(
+                        invalidLogin: (_) => {
+                              Alerts.logoutAlert(
+                                  title: "Login Failed",
+                                  subTitle: "Your login is invalid",
+                                  withCancel: false,
+                                  onPressed: () {
+                                    Get.back();
+                                  },
+                                  onCancelPressed: () {},
+                                  context: context)
+                            },
+                        orElse: () => null),
+                    (r) => Get.offNamed(Routes.home)));
           },
           builder: (BuildContext context, LoginFormState state) {
             return Scaffold(
@@ -100,12 +81,15 @@ class LoginPage extends HookWidget {
                                     border: InputBorder.none,
                                     prefixIcon: Icon(Icons.person),
                                   ),
-                                  onChanged: (value) => null,
+                                  onChanged: (value) => context
+                                      .read<LoginFormBloc>()
+                                      .add(LoginFormEvent.emailChanged(value)),
                                   validator: (context) => state.username.value
                                       .fold(
                                           (l) => l.maybeMap(
-                                              empty: (_) => null,
-                                              invalidUsername: (value) => null,
+                                              empty: (_) => "Username is empty",
+                                              invalidUsername: (_) =>
+                                                  "Invalid Username",
                                               orElse: () => null),
                                           (r) => null),
                                 ),
@@ -115,14 +99,19 @@ class LoginPage extends HookWidget {
                                     EdgeInsets.fromLTRB(14.0, 8.0, 14.0, 8.0),
                                 child: TextFormField(
                                   obscureText: hidden,
-                                  onChanged: (value) => null,
-                                  validator: (context) => state.password.value
-                                      .fold(
-                                          (l) => l.maybeMap(
-                                              empty: (_) => null,
-                                              invalidUsername: (value) => null,
-                                              orElse: () => null),
-                                          (r) => null),
+                                  autovalidateMode:
+                                      AutovalidateMode.onUserInteraction,
+                                  validator: (_) => state.password.value.fold(
+                                      (l) => l.maybeMap(
+                                          empty: (_) => "Password is empty",
+                                          invalidPassword: (_) =>
+                                              "Invalid Password",
+                                          orElse: () => null),
+                                      (r) => null),
+                                  onChanged: (value) => context
+                                      .read<LoginFormBloc>()
+                                      .add(LoginFormEvent.passwordChanged(
+                                          value)),
                                   decoration: InputDecoration(
                                       filled: true,
                                       fillColor: Colors.grey.withOpacity(0.3),
@@ -144,7 +133,9 @@ class LoginPage extends HookWidget {
                                 child: Components.button(
                                     text: "Login",
                                     onPressed: () {
-                                      state.authFailureOrSuccessOption;
+                                      context.read<LoginFormBloc>().add(
+                                          LoginFormEvent
+                                              .signInWithUsernameAndPasswordPressed());
                                       // Get.off(HomePage());
                                     }),
                               ),

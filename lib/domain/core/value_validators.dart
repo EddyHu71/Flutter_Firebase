@@ -22,6 +22,6 @@ Either<LoginFailure<String>, String> validatePassword(String input) {
   if (input.length >= 4) {
     return right(input);
   } else {
-    return left(LoginFailure.shortPassword(failedValue: input));
+    return left(LoginFailure.invalidPassword(failedValue: input));
   }
 }

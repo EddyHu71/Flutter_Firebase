@@ -28,7 +28,7 @@ class _$LoginFailureTearOff {
     );
   }
 
-  ShortPassword<T> shortPassword<T>({required T failedValue}) {
+  ShortPassword<T> invalidPassword<T>({required T failedValue}) {
     return ShortPassword<T>(
       failedValue: failedValue,
     );
@@ -52,7 +52,7 @@ mixin _$LoginFailure<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidUsername,
-    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) invalidPassword,
     required TResult Function() invalidLogin,
     required TResult Function() failed,
   }) =>
@@ -61,7 +61,7 @@ mixin _$LoginFailure<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidUsername,
-    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? invalidPassword,
     TResult Function()? invalidLogin,
     TResult Function()? failed,
     required TResult orElse(),
@@ -71,7 +71,7 @@ mixin _$LoginFailure<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidUsername<T> value) invalidUsername,
-    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(ShortPassword<T> value) invalidPassword,
     required TResult Function(_InvalidLogin<T> value) invalidLogin,
     required TResult Function(_Failed<T> value) failed,
   }) =>
@@ -80,7 +80,7 @@ mixin _$LoginFailure<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidUsername<T> value)? invalidUsername,
-    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ShortPassword<T> value)? invalidPassword,
     TResult Function(_InvalidLogin<T> value)? invalidLogin,
     TResult Function(_Failed<T> value)? failed,
     required TResult orElse(),
@@ -170,7 +170,7 @@ class _$Empty<T> implements Empty<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidUsername,
-    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) invalidPassword,
     required TResult Function() invalidLogin,
     required TResult Function() failed,
   }) {
@@ -182,7 +182,7 @@ class _$Empty<T> implements Empty<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidUsername,
-    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? invalidPassword,
     TResult Function()? invalidLogin,
     TResult Function()? failed,
     required TResult orElse(),
@@ -198,7 +198,7 @@ class _$Empty<T> implements Empty<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidUsername<T> value) invalidUsername,
-    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(ShortPassword<T> value) invalidPassword,
     required TResult Function(_InvalidLogin<T> value) invalidLogin,
     required TResult Function(_Failed<T> value) failed,
   }) {
@@ -210,7 +210,7 @@ class _$Empty<T> implements Empty<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidUsername<T> value)? invalidUsername,
-    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ShortPassword<T> value)? invalidPassword,
     TResult Function(_InvalidLogin<T> value)? invalidLogin,
     TResult Function(_Failed<T> value)? failed,
     required TResult orElse(),
@@ -299,7 +299,7 @@ class _$InvalidUsername<T> implements InvalidUsername<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidUsername,
-    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) invalidPassword,
     required TResult Function() invalidLogin,
     required TResult Function() failed,
   }) {
@@ -311,7 +311,7 @@ class _$InvalidUsername<T> implements InvalidUsername<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidUsername,
-    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? invalidPassword,
     TResult Function()? invalidLogin,
     TResult Function()? failed,
     required TResult orElse(),
@@ -327,7 +327,7 @@ class _$InvalidUsername<T> implements InvalidUsername<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidUsername<T> value) invalidUsername,
-    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(ShortPassword<T> value) invalidPassword,
     required TResult Function(_InvalidLogin<T> value) invalidLogin,
     required TResult Function(_Failed<T> value) failed,
   }) {
@@ -339,7 +339,7 @@ class _$InvalidUsername<T> implements InvalidUsername<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidUsername<T> value)? invalidUsername,
-    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ShortPassword<T> value)? invalidPassword,
     TResult Function(_InvalidLogin<T> value)? invalidLogin,
     TResult Function(_Failed<T> value)? failed,
     required TResult orElse(),
@@ -403,7 +403,7 @@ class _$ShortPassword<T> implements ShortPassword<T> {
 
   @override
   String toString() {
-    return 'LoginFailure<$T>.shortPassword(failedValue: $failedValue)';
+    return 'LoginFailure<$T>.invalidPassword(failedValue: $failedValue)';
   }
 
   @override
@@ -429,11 +429,11 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidUsername,
-    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) invalidPassword,
     required TResult Function() invalidLogin,
     required TResult Function() failed,
   }) {
-    return shortPassword(failedValue);
+    return invalidPassword(failedValue);
   }
 
   @override
@@ -441,13 +441,13 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidUsername,
-    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? invalidPassword,
     TResult Function()? invalidLogin,
     TResult Function()? failed,
     required TResult orElse(),
   }) {
-    if (shortPassword != null) {
-      return shortPassword(failedValue);
+    if (invalidPassword != null) {
+      return invalidPassword(failedValue);
     }
     return orElse();
   }
@@ -457,11 +457,11 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidUsername<T> value) invalidUsername,
-    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(ShortPassword<T> value) invalidPassword,
     required TResult Function(_InvalidLogin<T> value) invalidLogin,
     required TResult Function(_Failed<T> value) failed,
   }) {
-    return shortPassword(this);
+    return invalidPassword(this);
   }
 
   @override
@@ -469,13 +469,13 @@ class _$ShortPassword<T> implements ShortPassword<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidUsername<T> value)? invalidUsername,
-    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ShortPassword<T> value)? invalidPassword,
     TResult Function(_InvalidLogin<T> value)? invalidLogin,
     TResult Function(_Failed<T> value)? failed,
     required TResult orElse(),
   }) {
-    if (shortPassword != null) {
-      return shortPassword(this);
+    if (invalidPassword != null) {
+      return invalidPassword(this);
     }
     return orElse();
   }
@@ -532,7 +532,7 @@ class _$_InvalidLogin<T> implements _InvalidLogin<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidUsername,
-    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) invalidPassword,
     required TResult Function() invalidLogin,
     required TResult Function() failed,
   }) {
@@ -544,7 +544,7 @@ class _$_InvalidLogin<T> implements _InvalidLogin<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidUsername,
-    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? invalidPassword,
     TResult Function()? invalidLogin,
     TResult Function()? failed,
     required TResult orElse(),
@@ -560,7 +560,7 @@ class _$_InvalidLogin<T> implements _InvalidLogin<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidUsername<T> value) invalidUsername,
-    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(ShortPassword<T> value) invalidPassword,
     required TResult Function(_InvalidLogin<T> value) invalidLogin,
     required TResult Function(_Failed<T> value) failed,
   }) {
@@ -572,7 +572,7 @@ class _$_InvalidLogin<T> implements _InvalidLogin<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidUsername<T> value)? invalidUsername,
-    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ShortPassword<T> value)? invalidPassword,
     TResult Function(_InvalidLogin<T> value)? invalidLogin,
     TResult Function(_Failed<T> value)? failed,
     required TResult orElse(),
@@ -627,7 +627,7 @@ class _$_Failed<T> implements _Failed<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidUsername,
-    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) invalidPassword,
     required TResult Function() invalidLogin,
     required TResult Function() failed,
   }) {
@@ -639,7 +639,7 @@ class _$_Failed<T> implements _Failed<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidUsername,
-    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? invalidPassword,
     TResult Function()? invalidLogin,
     TResult Function()? failed,
     required TResult orElse(),
@@ -655,7 +655,7 @@ class _$_Failed<T> implements _Failed<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidUsername<T> value) invalidUsername,
-    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(ShortPassword<T> value) invalidPassword,
     required TResult Function(_InvalidLogin<T> value) invalidLogin,
     required TResult Function(_Failed<T> value) failed,
   }) {
@@ -667,7 +667,7 @@ class _$_Failed<T> implements _Failed<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidUsername<T> value)? invalidUsername,
-    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ShortPassword<T> value)? invalidPassword,
     TResult Function(_InvalidLogin<T> value)? invalidLogin,
     TResult Function(_Failed<T> value)? failed,
     required TResult orElse(),
