@@ -44,15 +44,14 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
   }
 
   Stream<LoginFormState> _performActionOnAuthFacadeWithEmailAndPassword(
-    Future<Either<AuthFailure, Unit>> Function({
+    Future<Either<AuthFailure, User>> Function({
       required Username username,
       required Password password,
     })
         forwardedCall,
   ) async* {
-    late Either<AuthFailure, Unit>? failOrSuccess;
+    late Either<AuthFailure, User>? failOrSuccess;
     LoginRepository? loginRepository;
-
     final isUsernameValid = state.username.isValid();
     final isPasswordValid = state.password.isValid();
 
@@ -63,16 +62,15 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
       );
       failOrSuccess = await forwardedCall(
           username: state.username, password: state.password);
-
       var response = await loginRepository?.getLogin(
-        state.username.value.toString(),
-        state.username.value.toString(),
-      );
+          state.username.getOrCrash(), state.password.getOrCrash());
+      print(response);
+     
     }
 
-    // yield state.copyWith(
-    //     isSubmitting: false,
-    //     showErrorMessages: false,
-    //     authFailureOrSuccessOption: optionOf(failOrSuccess));
+    yield state.copyWith(
+        isSubmitting: false,
+        showErrorMessages: true,
+        authFailureOrSuccessOption: optionOf(failOrSuccess));
   }
 }

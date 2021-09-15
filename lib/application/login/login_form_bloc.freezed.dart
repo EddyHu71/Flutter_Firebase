@@ -441,12 +441,14 @@ class _$LoginFormStateTearOff {
       {required Username username,
       required Password password,
       required bool showErrorMessages,
+      required bool isLoading,
       required bool isSubmitting,
       required Option<Either<AuthFailure, User>> authFailureOrSuccessOption}) {
     return _LoginFormState(
       username: username,
       password: password,
       showErrorMessages: showErrorMessages,
+      isLoading: isLoading,
       isSubmitting: isSubmitting,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
     );
@@ -461,6 +463,7 @@ mixin _$LoginFormState {
   Username get username => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<AuthFailure, User>> get authFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
@@ -479,6 +482,7 @@ abstract class $LoginFormStateCopyWith<$Res> {
       {Username username,
       Password password,
       bool showErrorMessages,
+      bool isLoading,
       bool isSubmitting,
       Option<Either<AuthFailure, User>> authFailureOrSuccessOption});
 }
@@ -497,6 +501,7 @@ class _$LoginFormStateCopyWithImpl<$Res>
     Object? username = freezed,
     Object? password = freezed,
     Object? showErrorMessages = freezed,
+    Object? isLoading = freezed,
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
   }) {
@@ -512,6 +517,10 @@ class _$LoginFormStateCopyWithImpl<$Res>
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
@@ -536,6 +545,7 @@ abstract class _$LoginFormStateCopyWith<$Res>
       {Username username,
       Password password,
       bool showErrorMessages,
+      bool isLoading,
       bool isSubmitting,
       Option<Either<AuthFailure, User>> authFailureOrSuccessOption});
 }
@@ -556,6 +566,7 @@ class __$LoginFormStateCopyWithImpl<$Res>
     Object? username = freezed,
     Object? password = freezed,
     Object? showErrorMessages = freezed,
+    Object? isLoading = freezed,
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
   }) {
@@ -571,6 +582,10 @@ class __$LoginFormStateCopyWithImpl<$Res>
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
       isSubmitting: isSubmitting == freezed
           ? _value.isSubmitting
@@ -591,6 +606,7 @@ class _$_LoginFormState implements _LoginFormState {
       {required this.username,
       required this.password,
       required this.showErrorMessages,
+      required this.isLoading,
       required this.isSubmitting,
       required this.authFailureOrSuccessOption});
 
@@ -601,13 +617,15 @@ class _$_LoginFormState implements _LoginFormState {
   @override
   final bool showErrorMessages;
   @override
+  final bool isLoading;
+  @override
   final bool isSubmitting;
   @override
   final Option<Either<AuthFailure, User>> authFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'LoginFormState(username: $username, password: $password, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'LoginFormState(username: $username, password: $password, showErrorMessages: $showErrorMessages, isLoading: $isLoading, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -623,6 +641,9 @@ class _$_LoginFormState implements _LoginFormState {
             (identical(other.showErrorMessages, showErrorMessages) ||
                 const DeepCollectionEquality()
                     .equals(other.showErrorMessages, showErrorMessages)) &&
+            (identical(other.isLoading, isLoading) ||
+                const DeepCollectionEquality()
+                    .equals(other.isLoading, isLoading)) &&
             (identical(other.isSubmitting, isSubmitting) ||
                 const DeepCollectionEquality()
                     .equals(other.isSubmitting, isSubmitting)) &&
@@ -639,6 +660,7 @@ class _$_LoginFormState implements _LoginFormState {
       const DeepCollectionEquality().hash(username) ^
       const DeepCollectionEquality().hash(password) ^
       const DeepCollectionEquality().hash(showErrorMessages) ^
+      const DeepCollectionEquality().hash(isLoading) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption);
 
@@ -653,6 +675,7 @@ abstract class _LoginFormState implements LoginFormState {
       {required Username username,
       required Password password,
       required bool showErrorMessages,
+      required bool isLoading,
       required bool isSubmitting,
       required Option<Either<AuthFailure, User>>
           authFailureOrSuccessOption}) = _$_LoginFormState;
@@ -663,6 +686,8 @@ abstract class _LoginFormState implements LoginFormState {
   Password get password => throw _privateConstructorUsedError;
   @override
   bool get showErrorMessages => throw _privateConstructorUsedError;
+  @override
+  bool get isLoading => throw _privateConstructorUsedError;
   @override
   bool get isSubmitting => throw _privateConstructorUsedError;
   @override

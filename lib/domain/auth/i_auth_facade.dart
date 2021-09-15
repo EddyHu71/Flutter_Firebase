@@ -5,7 +5,7 @@ import 'auth_objects.dart';
 
 abstract class IAuthFacade {
   Future<Option<User>> getSignedInUser();
-  Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword({
+  Future<Either<AuthFailure, User>> signInWithEmailAndPassword({
     required Username username,
     required Password password,
   });
