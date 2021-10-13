@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_firebase/application/login/login_form_bloc.dart';
 import 'package:flutter_firebase/domain/login/auth_objects.dart';
-import 'package:flutter_firebase/domain/auth/i_auth_facade.dart';
 import 'package:flutter_firebase/injection.dart';
 import 'package:flutter_firebase/presentation/core/alerts.dart';
 import 'package:flutter_firebase/presentation/core/components.dart';

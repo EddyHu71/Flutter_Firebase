@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart' hide IList;
-import 'package:flutter_firebase/domain/auth/user.dart';
 import 'package:flutter_firebase/domain/login/i_login_repository.dart';
 import 'package:flutter_firebase/domain/login/i_login_repository.dart';
 import 'package:flutter_firebase/domain/login/login_failure.dart';
