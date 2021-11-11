@@ -56,6 +56,8 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
       failOrSuccess = await _IloginRepository.getLogin(
           state.username.getOrCrash(), state.password.getOrCrash());
       print("Login success");
+      print(failOrSuccess.toString() == "Right(())");
+      print(failOrSuccess);
     }
 
     yield state.copyWith(

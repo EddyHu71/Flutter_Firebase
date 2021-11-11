@@ -18,9 +18,7 @@ class LoginPage extends HookWidget {
     bool hidden = true;
 
     // TODO: implement build
-    return BlocProvider<LoginFormBloc>(
-        create: (context) => getIt<LoginFormBloc>(),
-        child: BlocConsumer<LoginFormBloc, LoginFormState>(
+    return BlocConsumer<LoginFormBloc, LoginFormState>(
           listener: (BuildContext context, LoginFormState state) {
             state.authFailureOrSuccessOption.fold(
                 () => null,
@@ -153,6 +151,9 @@ class LoginPage extends HookWidget {
               ),
             ));
           },
-        ));
+        );
+    // return BlocProvider<LoginFormBloc>(
+    //     create: (context) => getIt<LoginFormBloc>(),
+    //     child: );
   }
 }
